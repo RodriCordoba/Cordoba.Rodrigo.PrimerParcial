@@ -1,0 +1,17 @@
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.exe
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.deps.json
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.runtimeconfig.json
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.pdb
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmLogin.resources
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.csproj.GenerateResource.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.AssemblyInfoInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.AssemblyInfo.cs
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\refint\Cordoba.Rodrigo.PrimerParcial.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.pdb
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.genruntimeconfig.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\ref\Cordoba.Rodrigo.PrimerParcial.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmInicio.resources
