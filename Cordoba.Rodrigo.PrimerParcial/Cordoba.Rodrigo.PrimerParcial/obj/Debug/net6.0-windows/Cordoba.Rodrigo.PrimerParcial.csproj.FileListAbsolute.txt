@@ -15,3 +15,6 @@ C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.genruntimeconfig.cache
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\ref\Cordoba.Rodrigo.PrimerParcial.dll
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmInicio.resources
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmAgregar.resources
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmModificar.resources
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.FrmEliminar.resources
