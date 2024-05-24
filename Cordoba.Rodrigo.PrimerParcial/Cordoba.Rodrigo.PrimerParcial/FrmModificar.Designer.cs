@@ -56,7 +56,7 @@
             // 
             // btnModificar
             // 
-            btnModificar.BackColor = SystemColors.InactiveCaption;
+            btnModificar.BackColor = Color.Gold;
             btnModificar.Location = new Point(120, 250);
             btnModificar.Name = "btnModificar";
             btnModificar.Size = new Size(150, 70);

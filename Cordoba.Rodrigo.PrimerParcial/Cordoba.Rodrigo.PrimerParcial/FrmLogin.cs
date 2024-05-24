@@ -20,7 +20,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
         {
             try
             {
-                string rutaArchivo = @"C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\MOCK_DATA.json";
+                string rutaArchivo = @"MOCK_DATA.json";
                 if (File.Exists(rutaArchivo))
                 {
                     string json = File.ReadAllText(rutaArchivo);

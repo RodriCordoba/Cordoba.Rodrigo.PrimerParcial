@@ -34,7 +34,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.BackColor = SystemColors.InactiveCaption;
+            btnEliminar.BackColor = Color.Red;
             btnEliminar.Location = new Point(120, 250);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(150, 70);
