@@ -1,0 +1,11 @@
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.AssemblyInfoInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.AssemblyInfo.cs
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\bin\Debug\net6.0\Indumentaria.deps.json
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\bin\Debug\net6.0\Indumentaria.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\bin\Debug\net6.0\Indumentaria.pdb
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\refint\Indumentaria.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.pdb
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\ref\Indumentaria.dll
