@@ -2,7 +2,7 @@
 
 namespace Entidades.Indumentaria
 {
-    public class Campera : Indumentaria1
+    public class Campera : Indumentaria
     {
         public bool ConCapucha { get; set; }
 

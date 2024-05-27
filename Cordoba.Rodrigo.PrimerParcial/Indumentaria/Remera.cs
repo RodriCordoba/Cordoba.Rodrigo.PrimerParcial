@@ -2,7 +2,7 @@
 
 namespace Entidades.Indumentaria
 {
-    public class Remera : Indumentaria1
+    public class Remera : Indumentaria
     {
         public bool EsMangaLarga { get; set; }
 

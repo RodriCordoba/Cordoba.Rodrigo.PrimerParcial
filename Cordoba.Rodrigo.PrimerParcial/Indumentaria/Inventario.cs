@@ -1,18 +1,19 @@
-﻿using System;
+﻿using Entidades.Indumentaria;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 public class Inventario
 {
-    private List<Indumentaria1> prendas;
+    private List<Indumentaria> prendas;
 
     public Inventario()
     {
-        this.prendas = new List<Indumentaria1>();
+        this.prendas = new List<Indumentaria>();
     }
 
-    public static Inventario operator +(Inventario inventario, Indumentaria1 prenda)
+    public static Inventario operator +(Inventario inventario, Indumentaria prenda)
     {
         if (!(inventario.prendas.Contains(prenda)))
         {
@@ -21,7 +22,7 @@ public class Inventario
         return inventario;
     }
 
-    public static Inventario operator -(Inventario inventario, Indumentaria1 prenda)
+    public static Inventario operator -(Inventario inventario, Indumentaria prenda)
     {
         if (inventario.prendas.Contains(prenda))
         {
@@ -30,12 +31,12 @@ public class Inventario
         return inventario;
     }
 
-    public static bool operator ==(Inventario inventario, Indumentaria1 prenda)
+    public static bool operator ==(Inventario inventario, Indumentaria prenda)
     {
         return inventario.prendas.Contains(prenda);
     }
 
-    public static bool operator !=(Inventario inventario, Indumentaria1 prenda)
+    public static bool operator !=(Inventario inventario, Indumentaria prenda)
     {
         return !(inventario == prenda);
     }
@@ -80,7 +81,7 @@ public class Inventario
         return sb.ToString();
     }
 
-    public List<Indumentaria1> GetPrendas()
+    public List<Indumentaria> GetPrendas()
     {
         return prendas;
     }

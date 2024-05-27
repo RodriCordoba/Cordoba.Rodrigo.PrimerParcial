@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Cordoba.Rodrigo.PrimerParcial/1.0.0": {
+        "dependencies": {
+          "Indumentaria": "1.0.0"
+        },
         "runtime": {
           "Cordoba.Rodrigo.PrimerParcial.dll": {}
+        }
+      },
+      "Indumentaria/1.0.0": {
+        "runtime": {
+          "Indumentaria.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Cordoba.Rodrigo.PrimerParcial/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Indumentaria/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
