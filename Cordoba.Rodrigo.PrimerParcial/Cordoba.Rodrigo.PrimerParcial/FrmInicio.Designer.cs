@@ -38,6 +38,7 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             cerrarProgramaToolStripMenuItem = new ToolStripMenuItem();
+            listInd = new ListBox();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -137,12 +138,22 @@
             cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             cerrarProgramaToolStripMenuItem.Click += cerrarProgramaToolStripMenuItem_Click;
             // 
+            // listInd
+            // 
+            listInd.FormattingEnabled = true;
+            listInd.ItemHeight = 15;
+            listInd.Location = new Point(12, 57);
+            listInd.Name = "listInd";
+            listInd.Size = new Size(776, 259);
+            listInd.TabIndex = 5;
+            // 
             // FrmInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(listInd);
             Controls.Add(btnEliminar);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -173,5 +184,6 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private ToolStripMenuItem cerrarProgramaToolStripMenuItem;
+        private ListBox listInd;
     }
 }

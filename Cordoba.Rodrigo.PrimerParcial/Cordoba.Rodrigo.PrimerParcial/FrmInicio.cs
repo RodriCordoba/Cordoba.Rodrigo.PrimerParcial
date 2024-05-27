@@ -15,6 +15,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
         public FrmInicio(string nombreOperador)
         {
             InitializeComponent();
+            this.IsMdiContainer = true;
             FrmInicio_Load();
             labelOperador.Text = "Operador: " + nombreOperador;
         }
