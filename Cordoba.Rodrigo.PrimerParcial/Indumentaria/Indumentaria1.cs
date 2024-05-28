@@ -36,6 +36,21 @@ namespace Entidades.Indumentaria
             this.items = new List<Indumentaria>();
         }
 
+        public void SetCantidad(int cantidad)
+        {
+            this.cantidad = cantidad;
+        }
+
+        public void SetTipoMaterial(EMaterial tipoMaterial)
+        {
+            this.tipoMaterial = tipoMaterial;
+        }
+
+        public void SetCodigo(string codigo)
+        {
+            this.codigo = codigo;
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

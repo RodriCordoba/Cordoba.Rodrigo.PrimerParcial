@@ -28,31 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblPrenda = new Label();
-            textBoxPrenda = new TextBox();
             btnModificar = new Button();
             textBox2 = new TextBox();
             lblCantidad = new Label();
             btnCancelar = new Button();
             textBoxCodigo = new TextBox();
             label1 = new Label();
+            cmbMaterial = new ComboBox();
+            lblMaterial = new Label();
             SuspendLayout();
-            // 
-            // lblPrenda
-            // 
-            lblPrenda.AutoSize = true;
-            lblPrenda.Location = new Point(90, 112);
-            lblPrenda.Name = "lblPrenda";
-            lblPrenda.Size = new Size(44, 15);
-            lblPrenda.TabIndex = 0;
-            lblPrenda.Text = "Prenda";
-            // 
-            // textBoxPrenda
-            // 
-            textBoxPrenda.Location = new Point(90, 150);
-            textBoxPrenda.Name = "textBoxPrenda";
-            textBoxPrenda.Size = new Size(100, 23);
-            textBoxPrenda.TabIndex = 1;
             // 
             // btnModificar
             // 
@@ -63,10 +47,11 @@
             btnModificar.TabIndex = 2;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = false;
+            btnModificar.Click += btnModificar_Click;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(540, 150);
+            textBox2.Location = new Point(494, 112);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 4;
@@ -75,7 +60,7 @@
             // lblCantidad
             // 
             lblCantidad.AutoSize = true;
-            lblCantidad.Location = new Point(540, 112);
+            lblCantidad.Location = new Point(494, 74);
             lblCantidad.Name = "lblCantidad";
             lblCantidad.Size = new Size(55, 15);
             lblCantidad.TabIndex = 3;
@@ -84,7 +69,7 @@
             // btnCancelar
             // 
             btnCancelar.BackColor = SystemColors.InactiveCaption;
-            btnCancelar.Location = new Point(450, 250);
+            btnCancelar.Location = new Point(444, 250);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(150, 70);
             btnCancelar.TabIndex = 5;
@@ -94,7 +79,7 @@
             // 
             // textBoxCodigo
             // 
-            textBoxCodigo.Location = new Point(315, 150);
+            textBoxCodigo.Location = new Point(321, 112);
             textBoxCodigo.Name = "textBoxCodigo";
             textBoxCodigo.Size = new Size(100, 23);
             textBoxCodigo.TabIndex = 7;
@@ -102,11 +87,29 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(315, 112);
+            label1.Location = new Point(321, 74);
             label1.Name = "label1";
             label1.Size = new Size(46, 15);
             label1.TabIndex = 6;
             label1.Text = "Codigo";
+            // 
+            // cmbMaterial
+            // 
+            cmbMaterial.FormattingEnabled = true;
+            cmbMaterial.Location = new Point(120, 112);
+            cmbMaterial.Name = "cmbMaterial";
+            cmbMaterial.Size = new Size(121, 23);
+            cmbMaterial.TabIndex = 8;
+            cmbMaterial.SelectedIndexChanged += cmbMaterial_SelectedIndexChanged;
+            // 
+            // lblMaterial
+            // 
+            lblMaterial.AutoSize = true;
+            lblMaterial.Location = new Point(120, 74);
+            lblMaterial.Name = "lblMaterial";
+            lblMaterial.Size = new Size(50, 15);
+            lblMaterial.TabIndex = 12;
+            lblMaterial.Text = "Material";
             // 
             // FrmModificar
             // 
@@ -114,14 +117,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(734, 361);
+            Controls.Add(lblMaterial);
+            Controls.Add(cmbMaterial);
             Controls.Add(textBoxCodigo);
             Controls.Add(label1);
             Controls.Add(btnCancelar);
             Controls.Add(textBox2);
             Controls.Add(lblCantidad);
             Controls.Add(btnModificar);
-            Controls.Add(textBoxPrenda);
-            Controls.Add(lblPrenda);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmModificar";
             StartPosition = FormStartPosition.CenterScreen;
@@ -131,14 +134,13 @@
         }
 
         #endregion
-
-        private Label lblPrenda;
-        private TextBox textBoxPrenda;
         private Button btnModificar;
         private TextBox textBox2;
         private Label lblCantidad;
         private Button btnCancelar;
         private TextBox textBoxCodigo;
         private Label label1;
+        private ComboBox cmbMaterial;
+        private Label lblMaterial;
     }
 }

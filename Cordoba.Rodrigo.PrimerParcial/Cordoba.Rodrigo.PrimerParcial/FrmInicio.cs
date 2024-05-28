@@ -26,9 +26,17 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmModificar modificar = new FrmModificar(this);
-            modificar.Show();
-            this.Hide();
+            if (listInd.SelectedItem != null)
+            {
+                Indumentaria prendaSeleccionada = (Indumentaria)listInd.SelectedItem;
+                FrmModificar modificar = new FrmModificar(this, prendaSeleccionada);
+                modificar.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una prenda para modificar.");
+            }
         }
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,6 +88,20 @@ namespace Cordoba.Rodrigo.PrimerParcial
         {
 
             listaIndumentaria.Add(prenda);
+            ActualizarLista();
+        }
+        public void ActualizarPrenda(Indumentaria prenda)
+        {
+            for (int i = 0; i < listaIndumentaria.Count; i++)
+            {
+                if (listaIndumentaria[i].Codigo == prenda.Codigo)
+                {
+                    listaIndumentaria[i].SetCantidad(prenda.Cantidad);
+                    listaIndumentaria[i].SetTipoMaterial(prenda.TipoMaterial);
+                    listaIndumentaria[i].SetCodigo(prenda.Codigo);
+                    break;
+                }
+            }
             ActualizarLista();
         }
         private void ActualizarLista()
