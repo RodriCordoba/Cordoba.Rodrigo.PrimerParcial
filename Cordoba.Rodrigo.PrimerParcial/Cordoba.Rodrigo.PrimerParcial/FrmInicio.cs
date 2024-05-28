@@ -13,9 +13,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
         {
             InitializeComponent();
             this.IsMdiContainer = true;
-            listaIndumentaria = new List<Indumentaria>();
             FrmInicio_Load();
             labelOperador.Text = "Operador: " + nombreOperador;
+            listaIndumentaria = new List<Indumentaria>();
         }
 
         private void FrmInicio_Load()
@@ -76,3 +76,4 @@ namespace Cordoba.Rodrigo.PrimerParcial
         }
     }
 }
+

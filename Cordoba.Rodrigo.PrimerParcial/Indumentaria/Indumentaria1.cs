@@ -6,6 +6,7 @@ namespace Entidades.Indumentaria
 {
     public abstract class Indumentaria
     {
+        protected string codigo;
         protected int cantidad;
         protected EMaterial tipoMaterial;
         protected List<Indumentaria> items;
@@ -13,43 +14,35 @@ namespace Entidades.Indumentaria
         public int Cantidad
         {
             get { return cantidad; }
-            set { cantidad = value; }
         }
 
         public EMaterial TipoMaterial
         {
             get { return tipoMaterial; }
-            set { tipoMaterial = value; }
+        }
+
+        public string Codigo
+        {
+            get { return codigo; }
         }
 
         public abstract string Descripcion();
 
-        public Indumentaria(int cantidad, EMaterial tipoMaterial)
+        public Indumentaria(string codigo, int cantidad, EMaterial tipoMaterial)
         {
+            this.codigo = codigo;
             this.cantidad = cantidad;
             this.tipoMaterial = tipoMaterial;
             this.items = new List<Indumentaria>();
         }
 
-        public Indumentaria(int cantidad) : this(cantidad, EMaterial.Algodon) { }
-
         public override string ToString()
         {
-            return $"Material: {this.tipoMaterial}, Cantidad: {this.cantidad}";
-        }
-
-        public override bool Equals(object? obj)
-        {
-            if (obj is Indumentaria other)
-            {
-                return this.tipoMaterial == other.tipoMaterial && this.cantidad == other.cantidad;
-            }
-            return false;
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(tipoMaterial, cantidad);
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine($"Código: {this.codigo}");
+            sb.AppendLine($"Cantidad: {this.cantidad}");
+            sb.AppendLine($"Material: {this.tipoMaterial}");
+            return sb.ToString();
         }
 
         public static bool operator ==(Indumentaria a, Indumentaria b)

@@ -30,7 +30,7 @@
         {
             Prenda = new Label();
             button1 = new Button();
-            textBoxTipoMaterial = new TextBox();
+            txtCodigo = new TextBox();
             lblCodigo = new Label();
             textBoxCantidad = new TextBox();
             Cantidad = new Label();
@@ -63,12 +63,12 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // textBoxTipoMaterial
+            // txtCodigo
             // 
-            textBoxTipoMaterial.Location = new Point(421, 110);
-            textBoxTipoMaterial.Name = "textBoxTipoMaterial";
-            textBoxTipoMaterial.Size = new Size(100, 23);
-            textBoxTipoMaterial.TabIndex = 4;
+            txtCodigo.Location = new Point(421, 110);
+            txtCodigo.Name = "txtCodigo";
+            txtCodigo.Size = new Size(100, 23);
+            txtCodigo.TabIndex = 4;
             // 
             // lblCodigo
             // 
@@ -171,7 +171,7 @@
             Controls.Add(btnCancelar);
             Controls.Add(textBoxCantidad);
             Controls.Add(Cantidad);
-            Controls.Add(textBoxTipoMaterial);
+            Controls.Add(txtCodigo);
             Controls.Add(lblCodigo);
             Controls.Add(button1);
             Controls.Add(Prenda);
@@ -188,7 +188,7 @@
 
         private Label Prenda;
         private Button button1;
-        private TextBox textBoxTipoMaterial;
+        private TextBox txtCodigo;
         private Label lblCodigo;
         private TextBox textBoxCantidad;
         private Label Cantidad;

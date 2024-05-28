@@ -4,23 +4,12 @@ namespace Entidades.Indumentaria
 {
     public class Campera : Indumentaria
     {
-        public bool ConCapucha { get; set; }
-
-        public Campera(int cantidad, EMaterial tipoMaterial, bool conCapucha)
-            : base(cantidad, tipoMaterial)
-        {
-            this.ConCapucha = conCapucha;
-        }
-
-        public Campera(int cantidad, EMaterial tipoMaterial)
-            : this(cantidad, tipoMaterial, false) { }
-
-        public Campera(int cantidad)
-            : this(cantidad, EMaterial.Algodon) { }
+        public Campera(string codigo, int cantidad, EMaterial tipoMaterial)
+            : base(codigo, cantidad, tipoMaterial) { }
 
         public override string Descripcion()
         {
-            return $"{base.ToString()}, Con Capucha: {this.ConCapucha}";
+            return $"Tipo: Campera, {base.ToString()}";
         }
 
         public override string ToString()

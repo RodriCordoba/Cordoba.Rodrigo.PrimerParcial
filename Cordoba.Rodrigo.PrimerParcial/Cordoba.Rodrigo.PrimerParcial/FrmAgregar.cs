@@ -24,27 +24,32 @@ namespace Cordoba.Rodrigo.PrimerParcial
         private void button1_Click(object sender, EventArgs e)
         {
             int cantidad;
-            if (int.TryParse(textBoxCantidad.Text, out cantidad))
+            string codigo; 
+
+            if (int.TryParse(textBoxCantidad.Text, out cantidad) && !string.IsNullOrEmpty(txtCodigo.Text))
             {
-                if (cmbMaterial.SelectedItem != null && Enum.TryParse(cmbMaterial.SelectedItem.ToString(), out EMaterial material))
+                codigo = txtCodigo.Text; 
+
+                EMaterial material;
+                if (Enum.TryParse(cmbMaterial.SelectedItem.ToString(), out material))
                 {
                     Indumentaria prenda = null;
                     if (rdbRemera.Checked)
                     {
-                        prenda = new Remera(cantidad, material);
+                        prenda = new Remera(codigo, cantidad, material);
                     }
-                    else if (radioButton1.Checked) // Cambia 'radioButton1' por el nombre correcto
+                    else if (radioButton1.Checked)
                     {
-                        prenda = new Pantalon(cantidad, material);
+                        prenda = new Pantalon(codigo, cantidad, material);
                     }
                     else if (rdbCampera.Checked)
                     {
-                        prenda = new Campera(cantidad, material);
+                        prenda = new Campera(codigo, cantidad, material);
                     }
 
                     if (prenda != null)
                     {
-                        inicio.AgregarPrenda(prenda); // Llama al método de instancia
+                        inicio.AgregarPrenda(prenda);
                         this.Close();
                     }
                     else
@@ -59,18 +64,19 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
             else
             {
-                MessageBox.Show("Ingrese una cantidad válida.");
+                MessageBox.Show("Ingrese una cantidad válida y un código no vacío.");
             }
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
             inicio.Show();
         }
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
         }
     }
 }
+

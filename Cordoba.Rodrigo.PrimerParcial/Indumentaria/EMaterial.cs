@@ -2,5 +2,10 @@
 {
     Algodon,
     Poliester,
-    Lana
+    Lana, 
+    Gabardina,
+    Jogging,
+    Polar,
+    Lino,
+    Jean
 }
