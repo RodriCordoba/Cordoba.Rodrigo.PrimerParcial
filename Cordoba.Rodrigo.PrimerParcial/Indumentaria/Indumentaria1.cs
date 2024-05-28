@@ -39,7 +39,7 @@ namespace Entidades.Indumentaria
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"Código: {this.codigo}");
+            sb.AppendLine($"\nCódigo: {this.codigo}");
             sb.AppendLine($"Cantidad: {this.cantidad}");
             sb.AppendLine($"Material: {this.tipoMaterial}");
             return sb.ToString();

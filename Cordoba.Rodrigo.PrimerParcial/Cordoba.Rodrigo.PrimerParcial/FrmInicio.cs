@@ -45,6 +45,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ActualizarLista();
             FrmAgregar agregar = new FrmAgregar(this);
             agregar.Show();
             this.Hide();
@@ -52,15 +53,39 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            FrmEliminar eliminar = new FrmEliminar(this);
-            eliminar.Show();
-            this.Hide();
+            if (listInd.SelectedItem != null)
+            {
+                Indumentaria prendaSeleccionada = (Indumentaria)listInd.SelectedItem;
+                string descripcionPrenda = prendaSeleccionada.ToString();
+
+                ActualizarLista();
+
+                FrmEliminar frmEliminar = new FrmEliminar(this, descripcionPrenda);
+                frmEliminar.ShowDialog();
+
+                if (frmEliminar.Confirmado)
+                {
+                    listaIndumentaria.Remove(prendaSeleccionada);
+                    ActualizarLista();
+                    MessageBox.Show("Prenda eliminada con éxito.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una prenda para eliminar.");
+            }
         }
 
         public void AgregarPrenda(Indumentaria prenda)
         {
+
             listaIndumentaria.Add(prenda);
-            listInd.Items.Add(prenda.ToString());
+            ActualizarLista();
+        }
+        private void ActualizarLista()
+        {
+            listInd.DataSource = null;
+            listInd.DataSource = listaIndumentaria;
         }
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
