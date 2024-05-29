@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Entidades.Indumentaria.Indumentaria">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABEAAQAACAAEQAUAEIABAAAAAAAAAAABAAAAAjA=</HashCode>
+      <FileName>Indumentaria1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Indumentaria.Pantalon">
+    <Position X="3.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pantalon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Indumentaria.Remera">
+    <Position X="5.25" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="Entidades.Indumentaria.Indumentaria" ManuallyRouted="true">
+      <Path>
+        <Point X="4" Y="4.997" />
+        <Point X="4" Y="5.125" />
+        <Point X="6" Y="5.125" />
+        <Point X="6" Y="5.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Remera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Entidades.Indumentaria.Campera">
+    <Position X="1.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Campera.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="EMaterial">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAEAAAAAAAAAIQAABAQBAAAAAQAAAA=</HashCode>
+      <FileName>EMaterial.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

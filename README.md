@@ -15,7 +15,8 @@ La aplicacion Crud - Indumentaria es una herramienta diseniada para realizar la 
 4. Para modificar un producto, seleccionalo de la lista y presiona el boton amarillo "Modificar". Se abrira una ventana emergente para editar los atributos del producto.
 5. Para eliminar un producto, seleccionalo de la lista y presiona el boton rojo "Eliminar". Confirma la accion en la ventana emergente.
 6. Ordena los productos por tipo ("Pantalon", "Campera", "Remera") y cantidad presionando el boton "Ordenar".
+7. Serializacion en la barra superior desplegara 4 opciones, "guardar xml", la cual guardara la lista de elementos en un archivo xml; "guardar json" hara lo mismo peor en archivo tipo json; "cargar xml" cargara la lista guardada previamente con sus respectivos valores; "cargar json" realizara lo mismo pero del archivo json guardado.
 
 
 ## Diagrama de clases
-![Diagrama de clases]
+![alt text](image-1.png)
