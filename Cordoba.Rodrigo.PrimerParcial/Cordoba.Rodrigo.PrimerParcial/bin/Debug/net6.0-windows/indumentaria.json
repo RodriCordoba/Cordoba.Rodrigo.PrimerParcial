@@ -1,1 +1,1 @@
-[{"Cantidad":3,"TipoMaterial":1,"Codigo":"2da3"}]
+[{"Tipo":"Pantalon","Pantalon":{"Codigo":"gdf4","Cantidad":3,"TipoMaterial":2,"Items":[]}},{"Tipo":"Campera","Campera":{"Codigo":"bvfs5","Cantidad":4,"TipoMaterial":2,"Items":[]}}]

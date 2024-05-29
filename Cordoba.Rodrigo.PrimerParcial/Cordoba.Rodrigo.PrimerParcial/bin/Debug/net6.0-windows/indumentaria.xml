@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfIndumentaria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Indumentaria xsi:type="Pantalon">
+    <Codigo>bfd</Codigo>
+    <Cantidad>3</Cantidad>
+    <TipoMaterial>Lana</TipoMaterial>
+    <Items />
+  </Indumentaria>
+  <Indumentaria xsi:type="Campera">
+    <Cantidad>0</Cantidad>
+    <TipoMaterial>Algodon</TipoMaterial>
+    <Items />
+  </Indumentaria>
+</ArrayOfIndumentaria>

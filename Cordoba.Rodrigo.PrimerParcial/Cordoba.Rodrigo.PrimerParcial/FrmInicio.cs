@@ -10,10 +10,17 @@ using System.Xml.Serialization;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que representa el formulario principal de la aplicación.
+    /// </summary>
     public partial class FrmInicio : Form
     {
         private List<Indumentaria> listaIndumentaria;
 
+        /// <summary>
+        /// Constructor de la clase FrmInicio.
+        /// </summary>
+        /// <param name="nombreOperador">Nombre del operador que inició sesión.</param>
         public FrmInicio(string nombreOperador)
         {
             InitializeComponent();
@@ -123,24 +130,86 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 return string.Empty;
             }).ThenBy(prenda => prenda.Cantidad).ToList();
             ActualizarLista();
-        }  
+        }
         private void xMLToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo xml
         {
-            
+            string filePath = "indumentaria.xml";
+            try
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Indumentaria>));
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    serializer.Serialize(writer, listaIndumentaria);
+                }
+                MessageBox.Show("Datos guardados exitosamente en XML.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar datos en XML: " + ex.Message);
+            }
         }
         private void jSONToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo json
         {
- 
+            string filePath = "indumentaria.json";
+            try
+            {
+                string jsonString = JsonSerializer.Serialize(listaIndumentaria);
+                File.WriteAllText(filePath, jsonString);
+                MessageBox.Show("Datos guardados exitosamente en JSON.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar datos en JSON: " + ex.Message);
+            }
         }
 
         private void cargarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string filePath = "indumentaria.xml";
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<Indumentaria>));
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        listaIndumentaria = (List<Indumentaria>)serializer.Deserialize(reader);
+                    }
+                    ActualizarLista();
+                    MessageBox.Show("Datos cargados exitosamente desde XML.");
+                }
+                else
+                {
+                    MessageBox.Show("El archivo XML no existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos desde XML: " + ex.Message);
+            }
         }
 
         private void cargarJSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            string filePath = "indumentaria.json";
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string jsonString = File.ReadAllText(filePath);
+                    listaIndumentaria = JsonSerializer.Deserialize<List<Indumentaria>>(jsonString);
+                    ActualizarLista();
+                    MessageBox.Show("Datos cargados exitosamente desde JSON.");
+                }
+                else
+                {
+                    MessageBox.Show("El archivo JSON no existe.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos desde JSON: " + ex.Message);
+            }
         }
 
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)

@@ -4,10 +4,16 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que representa el formulario para agregar una nueva prenda de indumentaria.
+    /// </summary>
     public partial class FrmAgregar : Form
     {
         private FrmInicio inicio;
-
+        /// <summary>
+        /// Constructor de la clase FrmAgregar.
+        /// </summary>
+        /// <param name="inicio">Instancia del formulario de inicio.</param>
         public FrmAgregar(FrmInicio inicio)
         {
             InitializeComponent();

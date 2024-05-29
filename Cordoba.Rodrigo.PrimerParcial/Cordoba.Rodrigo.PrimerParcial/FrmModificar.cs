@@ -11,10 +11,18 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que representa el formulario para modificar una prenda de indumentaria.
+    /// </summary>
     public partial class FrmModificar : Form
     {
         private FrmInicio inicio;
         private Indumentaria prendaSeleccionada;
+        /// <summary>
+        /// Constructor de la clase FrmModificar.
+        /// </summary>
+        /// <param name="inicio">Instancia del formulario de inicio.</param>
+        /// <param name="prenda">Prenda de indumentaria que se desea modificar.</param>
         public FrmModificar(FrmInicio inicio, Indumentaria prenda)
         {
             InitializeComponent();

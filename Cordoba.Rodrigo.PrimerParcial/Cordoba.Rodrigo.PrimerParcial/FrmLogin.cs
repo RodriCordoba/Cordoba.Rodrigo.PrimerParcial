@@ -6,16 +6,23 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que representa el formulario de inicio de sesión.
+    /// </summary>
     public partial class FrmLogin : Form
     {
         private List<Empleado> empleados;
-
+        /// <summary>
+        /// Constructor de la clase FrmLogin.
+        /// </summary>
         public FrmLogin()
         {
             InitializeComponent();
             CargarEmpleadosDesdeJSON();
         }
-
+        /// <summary>
+        /// Carga los empleados desde un archivo JSON.
+        /// </summary>
         private void CargarEmpleadosDesdeJSON()
         {
             try
@@ -36,7 +43,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al cargar los empleados desde el archivo JSON: " + ex.Message);
             }
         }
-
+        /// <summary>
+        /// Método invocado al hacer clic en el botón de inicio de sesión.
+        /// </summary>
+        /// <param name="sender">Objeto que generó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void button1_Click(object sender, EventArgs e)
         {
             string correo = txtUsuario.Text;
