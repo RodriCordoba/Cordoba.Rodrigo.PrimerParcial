@@ -15,12 +15,10 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.FormClosed += FrmAgregar_FormClosed;
             cmbMaterial.Items.AddRange(Enum.GetNames(typeof(EMaterial)));
         }
-
         private void FrmAgregar_FormClosed(object sender, FormClosedEventArgs e)
         {
             inicio.Show();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             int cantidad;
@@ -67,8 +65,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Ingrese una cantidad válida y un código no vacío.");
             }
         }
-
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

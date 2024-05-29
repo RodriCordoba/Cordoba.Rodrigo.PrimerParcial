@@ -38,7 +38,13 @@
             salirToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             cerrarProgramaToolStripMenuItem = new ToolStripMenuItem();
+            serializadorToolStripMenuItem = new ToolStripMenuItem();
+            xMLToolStripMenuItem = new ToolStripMenuItem();
+            jSONToolStripMenuItem = new ToolStripMenuItem();
+            ordenarListaToolStripMenuItem = new ToolStripMenuItem();
             listInd = new ListBox();
+            cargarXMLToolStripMenuItem = new ToolStripMenuItem();
+            cargarJSONToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -108,7 +114,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { salirToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { salirToolStripMenuItem, serializadorToolStripMenuItem, ordenarListaToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -138,6 +144,34 @@
             cerrarProgramaToolStripMenuItem.Text = "Cerrar programa";
             cerrarProgramaToolStripMenuItem.Click += cerrarProgramaToolStripMenuItem_Click;
             // 
+            // serializadorToolStripMenuItem
+            // 
+            serializadorToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { xMLToolStripMenuItem, jSONToolStripMenuItem, cargarXMLToolStripMenuItem, cargarJSONToolStripMenuItem });
+            serializadorToolStripMenuItem.Name = "serializadorToolStripMenuItem";
+            serializadorToolStripMenuItem.Size = new Size(79, 20);
+            serializadorToolStripMenuItem.Text = "Serializador";
+            // 
+            // xMLToolStripMenuItem
+            // 
+            xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
+            xMLToolStripMenuItem.Size = new Size(180, 22);
+            xMLToolStripMenuItem.Text = "Guardar XML";
+            xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
+            // 
+            // jSONToolStripMenuItem
+            // 
+            jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
+            jSONToolStripMenuItem.Size = new Size(180, 22);
+            jSONToolStripMenuItem.Text = "Guardar JSON";
+            jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
+            // 
+            // ordenarListaToolStripMenuItem
+            // 
+            ordenarListaToolStripMenuItem.Name = "ordenarListaToolStripMenuItem";
+            ordenarListaToolStripMenuItem.Size = new Size(86, 20);
+            ordenarListaToolStripMenuItem.Text = "Ordenar lista";
+            ordenarListaToolStripMenuItem.Click += ordenarListaToolStripMenuItem_Click;
+            // 
             // listInd
             // 
             listInd.FormattingEnabled = true;
@@ -146,6 +180,20 @@
             listInd.Name = "listInd";
             listInd.Size = new Size(776, 259);
             listInd.TabIndex = 5;
+            // 
+            // cargarXMLToolStripMenuItem
+            // 
+            cargarXMLToolStripMenuItem.Name = "cargarXMLToolStripMenuItem";
+            cargarXMLToolStripMenuItem.Size = new Size(180, 22);
+            cargarXMLToolStripMenuItem.Text = "Cargar XML";
+            cargarXMLToolStripMenuItem.Click += cargarXMLToolStripMenuItem_Click;
+            // 
+            // cargarJSONToolStripMenuItem
+            // 
+            cargarJSONToolStripMenuItem.Name = "cargarJSONToolStripMenuItem";
+            cargarJSONToolStripMenuItem.Size = new Size(180, 22);
+            cargarJSONToolStripMenuItem.Text = "Cargar JSON";
+            cargarJSONToolStripMenuItem.Click += cargarJSONToolStripMenuItem_Click;
             // 
             // FrmInicio
             // 
@@ -185,5 +233,11 @@
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private ToolStripMenuItem cerrarProgramaToolStripMenuItem;
         private ListBox listInd;
+        private ToolStripMenuItem serializadorToolStripMenuItem;
+        private ToolStripMenuItem xMLToolStripMenuItem;
+        private ToolStripMenuItem jSONToolStripMenuItem;
+        private ToolStripMenuItem ordenarListaToolStripMenuItem;
+        private ToolStripMenuItem cargarXMLToolStripMenuItem;
+        private ToolStripMenuItem cargarJSONToolStripMenuItem;
     }
 }

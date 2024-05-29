@@ -1,7 +1,12 @@
 ﻿using Entidades.Indumentaria;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text.Json;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
@@ -109,6 +114,35 @@ namespace Cordoba.Rodrigo.PrimerParcial
             listInd.DataSource = null;
             listInd.DataSource = listaIndumentaria;
         }
+        private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listaIndumentaria = listaIndumentaria.OrderBy(prenda => {
+                if (prenda is Pantalon) return "Pantalon";
+                if (prenda is Campera) return "Campera";
+                if (prenda is Remera) return "Remera";
+                return string.Empty;
+            }).ThenBy(prenda => prenda.Cantidad).ToList();
+            ActualizarLista();
+        }  
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo xml
+        {
+            
+        }
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo json
+        {
+ 
+        }
+
+        private void cargarXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cargarJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -123,4 +157,3 @@ namespace Cordoba.Rodrigo.PrimerParcial
         }
     }
 }
-
