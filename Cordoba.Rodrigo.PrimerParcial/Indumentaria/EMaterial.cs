@@ -7,5 +7,6 @@
     Jogging,
     Polar,
     Lino,
-    Jean
+    Jean, 
+    Nylon
 }
