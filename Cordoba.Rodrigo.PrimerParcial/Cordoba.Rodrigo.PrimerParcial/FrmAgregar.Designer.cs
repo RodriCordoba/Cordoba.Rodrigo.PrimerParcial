@@ -40,6 +40,11 @@
             rdbCampera = new RadioButton();
             rdbRemera = new RadioButton();
             lblMaterial = new Label();
+            rdbChupin = new RadioButton();
+            rdbEstampado = new RadioButton();
+            rdbCapucha = new RadioButton();
+            groupBox1 = new GroupBox();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // Prenda
@@ -65,7 +70,7 @@
             // 
             // txtCodigo
             // 
-            txtCodigo.Location = new Point(421, 110);
+            txtCodigo.Location = new Point(450, 110);
             txtCodigo.Name = "txtCodigo";
             txtCodigo.Size = new Size(100, 23);
             txtCodigo.TabIndex = 4;
@@ -73,7 +78,7 @@
             // lblCodigo
             // 
             lblCodigo.AutoSize = true;
-            lblCodigo.Location = new Point(421, 72);
+            lblCodigo.Location = new Point(450, 72);
             lblCodigo.Name = "lblCodigo";
             lblCodigo.Size = new Size(46, 15);
             lblCodigo.TabIndex = 3;
@@ -120,8 +125,9 @@
             // 
             // cmbMaterial
             // 
+            cmbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterial.FormattingEnabled = true;
-            cmbMaterial.Location = new Point(220, 110);
+            cmbMaterial.Location = new Point(284, 110);
             cmbMaterial.Name = "cmbMaterial";
             cmbMaterial.Size = new Size(121, 23);
             cmbMaterial.TabIndex = 9;
@@ -151,11 +157,55 @@
             // lblMaterial
             // 
             lblMaterial.AutoSize = true;
-            lblMaterial.Location = new Point(220, 72);
+            lblMaterial.Location = new Point(284, 72);
             lblMaterial.Name = "lblMaterial";
             lblMaterial.Size = new Size(50, 15);
             lblMaterial.TabIndex = 12;
             lblMaterial.Text = "Material";
+            // 
+            // rdbChupin
+            // 
+            rdbChupin.AutoSize = true;
+            rdbChupin.Location = new Point(5, 22);
+            rdbChupin.Name = "rdbChupin";
+            rdbChupin.Size = new Size(96, 19);
+            rdbChupin.TabIndex = 13;
+            rdbChupin.TabStop = true;
+            rdbChupin.Text = "Corte Chupin";
+            rdbChupin.UseVisualStyleBackColor = true;
+            // 
+            // rdbEstampado
+            // 
+            rdbEstampado.AutoSize = true;
+            rdbEstampado.Location = new Point(6, 47);
+            rdbEstampado.Name = "rdbEstampado";
+            rdbEstampado.Size = new Size(109, 19);
+            rdbEstampado.TabIndex = 14;
+            rdbEstampado.TabStop = true;
+            rdbEstampado.Text = "Con estampado";
+            rdbEstampado.UseVisualStyleBackColor = true;
+            // 
+            // rdbCapucha
+            // 
+            rdbCapucha.AutoSize = true;
+            rdbCapucha.Location = new Point(6, 72);
+            rdbCapucha.Name = "rdbCapucha";
+            rdbCapucha.Size = new Size(95, 19);
+            rdbCapucha.TabIndex = 15;
+            rdbCapucha.TabStop = true;
+            rdbCapucha.Text = "Con capucha";
+            rdbCapucha.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(rdbChupin);
+            groupBox1.Controls.Add(rdbCapucha);
+            groupBox1.Controls.Add(rdbEstampado);
+            groupBox1.Location = new Point(131, 88);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(147, 97);
+            groupBox1.TabIndex = 0;
+            groupBox1.TabStop = false;
             // 
             // FrmAgregar
             // 
@@ -163,6 +213,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(734, 361);
+            Controls.Add(groupBox1);
             Controls.Add(lblMaterial);
             Controls.Add(rdbRemera);
             Controls.Add(rdbCampera);
@@ -179,7 +230,10 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmAgregar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Agregar Indumentaria";
+            Text = " ";
+            Load += FrmAgregar_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -198,5 +252,9 @@
         private RadioButton rdbCampera;
         private RadioButton rdbRemera;
         private Label lblMaterial;
+        private RadioButton rdbChupin;
+        private RadioButton rdbEstampado;
+        private RadioButton rdbCapucha;
+        private GroupBox groupBox1;
     }
 }

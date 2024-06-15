@@ -41,10 +41,10 @@
             serializadorToolStripMenuItem = new ToolStripMenuItem();
             xMLToolStripMenuItem = new ToolStripMenuItem();
             jSONToolStripMenuItem = new ToolStripMenuItem();
-            ordenarListaToolStripMenuItem = new ToolStripMenuItem();
-            listInd = new ListBox();
             cargarXMLToolStripMenuItem = new ToolStripMenuItem();
             cargarJSONToolStripMenuItem = new ToolStripMenuItem();
+            ordenarListaToolStripMenuItem = new ToolStripMenuItem();
+            listInd = new ListBox();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -154,16 +154,30 @@
             // xMLToolStripMenuItem
             // 
             xMLToolStripMenuItem.Name = "xMLToolStripMenuItem";
-            xMLToolStripMenuItem.Size = new Size(180, 22);
+            xMLToolStripMenuItem.Size = new Size(147, 22);
             xMLToolStripMenuItem.Text = "Guardar XML";
             xMLToolStripMenuItem.Click += xMLToolStripMenuItem_Click;
             // 
             // jSONToolStripMenuItem
             // 
             jSONToolStripMenuItem.Name = "jSONToolStripMenuItem";
-            jSONToolStripMenuItem.Size = new Size(180, 22);
+            jSONToolStripMenuItem.Size = new Size(147, 22);
             jSONToolStripMenuItem.Text = "Guardar JSON";
             jSONToolStripMenuItem.Click += jSONToolStripMenuItem_Click;
+            // 
+            // cargarXMLToolStripMenuItem
+            // 
+            cargarXMLToolStripMenuItem.Name = "cargarXMLToolStripMenuItem";
+            cargarXMLToolStripMenuItem.Size = new Size(147, 22);
+            cargarXMLToolStripMenuItem.Text = "Cargar XML";
+            cargarXMLToolStripMenuItem.Click += cargarXMLToolStripMenuItem_Click;
+            // 
+            // cargarJSONToolStripMenuItem
+            // 
+            cargarJSONToolStripMenuItem.Name = "cargarJSONToolStripMenuItem";
+            cargarJSONToolStripMenuItem.Size = new Size(147, 22);
+            cargarJSONToolStripMenuItem.Text = "Cargar JSON";
+            cargarJSONToolStripMenuItem.Click += cargarJSONToolStripMenuItem_Click;
             // 
             // ordenarListaToolStripMenuItem
             // 
@@ -181,20 +195,6 @@
             listInd.Size = new Size(776, 259);
             listInd.TabIndex = 5;
             // 
-            // cargarXMLToolStripMenuItem
-            // 
-            cargarXMLToolStripMenuItem.Name = "cargarXMLToolStripMenuItem";
-            cargarXMLToolStripMenuItem.Size = new Size(180, 22);
-            cargarXMLToolStripMenuItem.Text = "Cargar XML";
-            cargarXMLToolStripMenuItem.Click += cargarXMLToolStripMenuItem_Click;
-            // 
-            // cargarJSONToolStripMenuItem
-            // 
-            cargarJSONToolStripMenuItem.Name = "cargarJSONToolStripMenuItem";
-            cargarJSONToolStripMenuItem.Size = new Size(180, 22);
-            cargarJSONToolStripMenuItem.Text = "Cargar JSON";
-            cargarJSONToolStripMenuItem.Click += cargarJSONToolStripMenuItem_Click;
-            // 
             // FrmInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -211,7 +211,6 @@
             MainMenuStrip = menuStrip1;
             Name = "FrmInicio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "INDUMENTARIA";
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             menuStrip1.ResumeLayout(false);

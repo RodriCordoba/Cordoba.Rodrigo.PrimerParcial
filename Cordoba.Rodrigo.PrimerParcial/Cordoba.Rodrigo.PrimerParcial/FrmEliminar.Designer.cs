@@ -76,7 +76,6 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmEliminar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Eliminar indumentaria";
             ResumeLayout(false);
             PerformLayout();
         }

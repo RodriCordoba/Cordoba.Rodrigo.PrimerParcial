@@ -95,6 +95,7 @@
             // 
             // cmbMaterial
             // 
+            cmbMaterial.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMaterial.FormattingEnabled = true;
             cmbMaterial.Location = new Point(120, 112);
             cmbMaterial.Name = "cmbMaterial";
@@ -128,7 +129,6 @@
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmModificar";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Modificar Indumentaria";
             ResumeLayout(false);
             PerformLayout();
         }

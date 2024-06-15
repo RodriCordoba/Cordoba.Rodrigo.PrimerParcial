@@ -123,7 +123,8 @@ namespace Cordoba.Rodrigo.PrimerParcial
         }
         private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listaIndumentaria = listaIndumentaria.OrderBy(prenda => {
+            listaIndumentaria = listaIndumentaria.OrderBy(prenda =>
+            {
                 if (prenda is Pantalon) return "Pantalon";
                 if (prenda is Campera) return "Campera";
                 if (prenda is Remera) return "Remera";

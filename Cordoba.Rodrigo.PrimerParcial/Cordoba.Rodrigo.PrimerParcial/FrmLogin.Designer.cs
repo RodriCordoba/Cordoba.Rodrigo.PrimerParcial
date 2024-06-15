@@ -98,7 +98,6 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
         }
