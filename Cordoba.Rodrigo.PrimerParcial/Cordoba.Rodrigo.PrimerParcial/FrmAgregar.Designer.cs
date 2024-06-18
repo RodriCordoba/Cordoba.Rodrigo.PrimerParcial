@@ -40,7 +40,7 @@
             rdbCampera = new RadioButton();
             rdbRemera = new RadioButton();
             lblMaterial = new Label();
-            rdbChupin = new RadioButton();
+            rdbBermuda = new RadioButton();
             rdbEstampado = new RadioButton();
             rdbCapucha = new RadioButton();
             groupBox1 = new GroupBox();
@@ -163,16 +163,16 @@
             lblMaterial.TabIndex = 12;
             lblMaterial.Text = "Material";
             // 
-            // rdbChupin
+            // rdbBermuda
             // 
-            rdbChupin.AutoSize = true;
-            rdbChupin.Location = new Point(5, 22);
-            rdbChupin.Name = "rdbChupin";
-            rdbChupin.Size = new Size(96, 19);
-            rdbChupin.TabIndex = 13;
-            rdbChupin.TabStop = true;
-            rdbChupin.Text = "Corte Chupin";
-            rdbChupin.UseVisualStyleBackColor = true;
+            rdbBermuda.AutoSize = true;
+            rdbBermuda.Location = new Point(5, 22);
+            rdbBermuda.Name = "rdbBermuda";
+            rdbBermuda.Size = new Size(73, 19);
+            rdbBermuda.TabIndex = 13;
+            rdbBermuda.TabStop = true;
+            rdbBermuda.Text = "Bermuda";
+            rdbBermuda.UseVisualStyleBackColor = true;
             // 
             // rdbEstampado
             // 
@@ -198,7 +198,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(rdbChupin);
+            groupBox1.Controls.Add(rdbBermuda);
             groupBox1.Controls.Add(rdbCapucha);
             groupBox1.Controls.Add(rdbEstampado);
             groupBox1.Location = new Point(131, 88);
@@ -252,7 +252,7 @@
         private RadioButton rdbCampera;
         private RadioButton rdbRemera;
         private Label lblMaterial;
-        private RadioButton rdbChupin;
+        private RadioButton rdbBermuda;
         private RadioButton rdbEstampado;
         private RadioButton rdbCapucha;
         private GroupBox groupBox1;

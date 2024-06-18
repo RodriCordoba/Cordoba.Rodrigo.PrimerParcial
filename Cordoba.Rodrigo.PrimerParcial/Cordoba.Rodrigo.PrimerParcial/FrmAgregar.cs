@@ -23,7 +23,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             cmbMaterial.Items.AddRange(Enum.GetNames(typeof(EMaterial)));
 
             rdbCapucha.Visible = false;
-            rdbChupin.Visible = false;
+            rdbBermuda.Visible = false;
             rdbEstampado.Visible = false;
 
             rdbCampera.CheckedChanged += RadioButton_CheckedChanged;
@@ -41,19 +41,19 @@ namespace Cordoba.Rodrigo.PrimerParcial
             if (rdbCampera.Checked)
             {
                 rdbCapucha.Visible = true;
-                rdbChupin.Visible = false;
+                rdbBermuda.Visible = false;
                 rdbEstampado.Visible = false;
             }
             else if (radioButton1.Checked)
             {
                 rdbCapucha.Visible = false;
-                rdbChupin.Visible = true;
+                rdbBermuda.Visible = true;
                 rdbEstampado.Visible = false;
             }
             else if (rdbRemera.Checked)
             {
                 rdbCapucha.Visible = false;
-                rdbChupin.Visible = false;
+                rdbBermuda.Visible = false;
                 rdbEstampado.Visible = true;
             }
         }
@@ -77,7 +77,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
                     }
                     else if (radioButton1.Checked)
                     {
-                        prenda = new Pantalon(codigo, cantidad, material, rdbChupin.Checked);
+                        prenda = new Pantalon(codigo, cantidad, material, rdbBermuda.Checked);
                     }
                     else if (rdbCampera.Checked)
                     {

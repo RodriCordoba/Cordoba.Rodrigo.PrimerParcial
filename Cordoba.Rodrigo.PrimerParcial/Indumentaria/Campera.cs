@@ -1,46 +1,50 @@
 ﻿namespace Entidades.Indumentaria
 {
-    /// <summary>
-    /// Clase que representa una campera en el sistema de gestión de indumentaria.
-    /// </summary>
     public class Campera : Indumentaria
     {
         public bool TieneCapucha { get; set; }
 
-        /// <summary>
-        /// Constructor por defecto de la clase Campera.
-        /// </summary>
         public Campera() : base() { }
 
-        /// <summary>
-        /// Constructor parametrizado de la clase Campera.
-        /// </summary>
-        /// <param name="codigo">El código de la campera.</param>
-        /// <param name="cantidad">La cantidad de unidades disponibles.</param>
-        /// <param name="tipoMaterial">El tipo de material de la campera.</param>
-        /// <param name="tieneCapucha">Indica si la campera tiene capucha.</param>
         public Campera(string codigo, int cantidad, EMaterial tipoMaterial, bool tieneCapucha)
             : base(codigo, cantidad, tipoMaterial)
         {
             TieneCapucha = tieneCapucha;
         }
 
-        /// <summary>
-        /// Obtiene la descripción de la campera.
-        /// </summary>
-        /// <returns>La descripción de la campera.</returns>
         public override string Descripcion()
         {
             return $"Tipo: Campera, {base.ToString()}, Capucha: {(TieneCapucha ? "Sí" : "No")}";
         }
 
-        /// <summary>
-        /// Devuelve la descripción de la campera.
-        /// </summary>
-        /// <returns>La descripción de la campera.</returns>
         public override string ToString()
         {
             return this.Descripcion();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Campera other)
+            {
+                return base.Equals(other) &&
+                       TieneCapucha == other.TieneCapucha;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(base.GetHashCode(), TieneCapucha);
+        }
+
+        public static bool operator ==(Campera a, Campera b)
+        {
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Campera a, Campera b)
+        {
+            return !(a == b);
         }
     }
 }

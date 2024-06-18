@@ -42,7 +42,7 @@
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(170, 23);
             txtUsuario.TabIndex = 0;
-            txtUsuario.Text = "cgorgen@vendedor.com";
+            txtUsuario.Text = "admin@admin.com";
             // 
             // label1
             // 
@@ -70,7 +70,7 @@
             txtContraseña.PasswordChar = '*';
             txtContraseña.Size = new Size(170, 23);
             txtContraseña.TabIndex = 3;
-            txtContraseña.Text = "123abc45";
+            txtContraseña.Text = "12345678";
             // 
             // btnIniciarSesion_click
             // 
