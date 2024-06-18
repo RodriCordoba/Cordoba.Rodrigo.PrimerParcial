@@ -73,15 +73,15 @@ namespace Cordoba.Rodrigo.PrimerParcial
                     Indumentaria prenda = null;
                     if (rdbRemera.Checked)
                     {
-                        prenda = new Remera(codigo, cantidad, material);
+                        prenda = new Remera(codigo, cantidad, material, rdbEstampado.Checked);
                     }
                     else if (radioButton1.Checked)
                     {
-                        prenda = new Pantalon(codigo, cantidad, material);
+                        prenda = new Pantalon(codigo, cantidad, material, rdbChupin.Checked);
                     }
                     else if (rdbCampera.Checked)
                     {
-                        prenda = new Campera(codigo, cantidad, material);
+                        prenda = new Campera(codigo, cantidad, material, rdbCampera.Checked);
                     }
 
                     if (prenda != null)

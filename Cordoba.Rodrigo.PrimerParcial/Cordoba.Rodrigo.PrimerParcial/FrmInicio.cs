@@ -21,12 +21,26 @@ namespace Cordoba.Rodrigo.PrimerParcial
         /// Constructor de la clase FrmInicio.
         /// </summary>
         /// <param name="nombreOperador">Nombre del operador que inició sesión.</param>
-        public FrmInicio(string nombreOperador)
+        public FrmInicio(string nombreOperador, string puesto)
         {
             InitializeComponent();
             this.IsMdiContainer = true;
             FrmInicio_Load();
-            labelOperador.Text = "Operador: " + nombreOperador;
+            labelOperador.Text = "Operador: " + nombreOperador + " Puesto: " + puesto;
+            if(puesto == "supervisor")
+            {
+                btnEliminar.Enabled = false;
+                btnEliminar.Hide();
+            }
+            else if(puesto == "vendedor")
+            {
+                btnEliminar.Enabled = false;
+                btnEliminar.Hide();
+                button2.Enabled = false;
+                button2.Hide();
+                button1.Enabled = false;
+                button1.Hide();
+            }
             listaIndumentaria = new List<Indumentaria>();
         }
 

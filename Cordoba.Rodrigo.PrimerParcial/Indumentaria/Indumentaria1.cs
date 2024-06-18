@@ -87,41 +87,48 @@ namespace Entidades.Indumentaria
         /// <returns>Una representación de cadena de la prenda.</returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"\nCódigo: {Codigo}");
-            sb.AppendLine($"Cantidad: {Cantidad}");
-            sb.AppendLine($"Material: {TipoMaterial}");
-            return sb.ToString();
+            return $"Código: {Codigo}, Cantidad: {Cantidad}, Material: {TipoMaterial}";
+        }
+        public override bool Equals(object obj)
+        {
+            if (obj is Indumentaria other)
+            {
+                return Codigo == other.Codigo &&
+                       Cantidad == other.Cantidad &&
+                       TipoMaterial == other.TipoMaterial;
+            }
+            return false;
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Codigo, Cantidad, TipoMaterial);
         }
 
         public static bool operator ==(Indumentaria a, Indumentaria b)
         {
             if (ReferenceEquals(a, b)) return true;
-            if (a is null || b is null) return false;
+            if (ReferenceEquals(a, null) || ReferenceEquals(b, null)) return false;
             return a.Equals(b);
         }
-
         public static bool operator !=(Indumentaria a, Indumentaria b)
         {
             return !(a == b);
         }
 
-        public static Indumentaria operator +(Indumentaria ind, Indumentaria item)
+        public static Indumentaria operator +(Indumentaria a, Indumentaria b)
         {
-            if (ind != item)
-            {
-                ind.Items.Add(item);
-            }
-            return ind;
+            if (a.GetType() != b.GetType())
+                throw new InvalidOperationException("No se pueden sumar prendas de diferente tipo.");
+
+            return (Indumentaria)Activator.CreateInstance(a.GetType(), b.Codigo, a.Cantidad + b.Cantidad, a.TipoMaterial);
         }
 
-        public static Indumentaria operator -(Indumentaria ind, Indumentaria item)
+        public static Indumentaria operator -(Indumentaria a, Indumentaria b)
         {
-            if (ind == item)
-            {
-                ind.Items.Remove(item);
-            }
-            return ind;
+            if (a.GetType() != b.GetType())
+                throw new InvalidOperationException("No se pueden restar prendas de diferente tipo.");
+
+            return (Indumentaria)Activator.CreateInstance(a.GetType(), b.Codigo, a.Cantidad - b.Cantidad, a.TipoMaterial);
         }
 
         public static implicit operator List<Indumentaria>(Indumentaria ind)

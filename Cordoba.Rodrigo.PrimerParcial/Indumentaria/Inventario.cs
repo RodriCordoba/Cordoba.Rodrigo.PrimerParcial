@@ -25,7 +25,7 @@ public class Inventario
     /// <returns>El inventario actualizado.</returns>
     public static Inventario operator +(Inventario inventario, Indumentaria prenda)
     {
-        if (!(inventario.prendas.Contains(prenda)))
+        if (!inventario.prendas.Contains(prenda))
         {
             inventario.prendas.Add(prenda);
         }
@@ -45,18 +45,15 @@ public class Inventario
         }
         return inventario;
     }
-
     public static bool operator ==(Inventario inventario, Indumentaria prenda)
     {
         return inventario.prendas.Contains(prenda);
     }
-
     public static bool operator !=(Inventario inventario, Indumentaria prenda)
     {
         return !(inventario == prenda);
     }
-
-    public override bool Equals(object? obj)
+    public override bool Equals(object obj)
     {
         if (obj is Inventario other)
         {

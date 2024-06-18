@@ -67,8 +67,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
             if (credencialesValidas)
             {
                 string nombreOperador = empleados.Find(emp => emp.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase)).Nombre;
+                string puesto = empleados.Find(emp => emp.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase)).Perfil;
                 MessageBox.Show("Inicio de sesión exitoso!");
-                FrmInicio formInicio = new FrmInicio(nombreOperador);
+                FrmInicio formInicio = new FrmInicio(nombreOperador, puesto);
                 formInicio.Show();
                 this.Hide();
             }
