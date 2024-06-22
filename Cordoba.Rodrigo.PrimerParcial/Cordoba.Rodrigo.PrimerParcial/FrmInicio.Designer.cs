@@ -207,7 +207,7 @@
             Controls.Add(button1);
             Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MainMenuStrip = menuStrip1;
             Name = "FrmInicio";
             StartPosition = FormStartPosition.CenterScreen;

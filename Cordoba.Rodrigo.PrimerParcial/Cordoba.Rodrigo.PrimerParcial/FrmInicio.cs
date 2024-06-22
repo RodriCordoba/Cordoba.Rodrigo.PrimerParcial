@@ -27,12 +27,12 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.IsMdiContainer = true;
             FrmInicio_Load();
             labelOperador.Text = "Operador: " + nombreOperador + " Puesto: " + puesto;
-            if(puesto == "supervisor")
+            if (puesto == "supervisor")
             {
                 btnEliminar.Enabled = false;
                 btnEliminar.Hide();
             }
-            else if(puesto == "vendedor")
+            else if (puesto == "vendedor")
             {
                 btnEliminar.Enabled = false;
                 btnEliminar.Hide();

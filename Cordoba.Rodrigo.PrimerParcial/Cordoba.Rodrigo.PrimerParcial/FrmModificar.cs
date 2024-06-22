@@ -14,7 +14,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
     /// <summary>
     /// Clase que representa el formulario para modificar una prenda de indumentaria.
     /// </summary>
-    public partial class FrmModificar : Form
+    public partial class FrmModificar : frmBaseIndumentaria
     {
         private FrmInicio inicio;
         private Indumentaria prendaSeleccionada;
@@ -45,6 +45,17 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Close();
             inicio.Show();
         }
+        private void btnAceptar_Click_1(object sender, EventArgs e)
+        {
+            prendaSeleccionada.SetCantidad(int.Parse(textBox2.Text));
+            prendaSeleccionada.SetTipoMaterial((EMaterial)cmbMaterial.SelectedItem);
+            prendaSeleccionada.SetCodigo(textBoxCodigo.Text);
+
+            inicio.ActualizarPrenda(prendaSeleccionada);
+
+            this.Close();
+            inicio.Show();
+        }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -56,16 +67,5 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            prendaSeleccionada.SetCantidad(int.Parse(textBox2.Text));
-            prendaSeleccionada.SetTipoMaterial((EMaterial)cmbMaterial.SelectedItem);
-            prendaSeleccionada.SetCodigo(textBoxCodigo.Text);
-
-            inicio.ActualizarPrenda(prendaSeleccionada);
-
-            this.Close();
-            inicio.Show();
-        }
     }
 }

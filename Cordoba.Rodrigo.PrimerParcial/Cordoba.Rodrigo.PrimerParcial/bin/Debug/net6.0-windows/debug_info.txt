@@ -1,0 +1,20 @@
+Excepción: '{' is an invalid start of a property name. Expected a '"'. LineNumber: 0 | BytePositionInLine: 19.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.Utf8JsonReader.TrySkip()
+   at System.Text.Json.JsonDocument.TryParseValue(Utf8JsonReader& reader, JsonDocument& document, Boolean shouldThrow, Boolean useArrayPools)
+   at System.Text.Json.JsonDocument.ParseValue(Utf8JsonReader& reader)
+   at Entidades.Indumentaria.IndumentariaConvertidor.Read(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options) in C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\Serializador.cs:line 20
+Excepción: '{' is an invalid start of a property name. Expected a '"'. LineNumber: 0 | BytePositionInLine: 19.
+   at System.Text.Json.ThrowHelper.ThrowJsonReaderException(Utf8JsonReader& json, ExceptionResource resource, Byte nextByte, ReadOnlySpan`1 bytes)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextToken(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ConsumeNextTokenOrRollback(Byte marker)
+   at System.Text.Json.Utf8JsonReader.ReadSingleSegment()
+   at System.Text.Json.Utf8JsonReader.Read()
+   at System.Text.Json.Utf8JsonReader.TrySkip()
+   at System.Text.Json.JsonDocument.TryParseValue(Utf8JsonReader& reader, JsonDocument& document, Boolean shouldThrow, Boolean useArrayPools)
+   at System.Text.Json.JsonDocument.ParseValue(Utf8JsonReader& reader)
+   at Entidades.Indumentaria.IndumentariaConvertidor.Read(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options) in C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\Serializador.cs:line 25

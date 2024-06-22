@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Cordoba.Rodrigo.PrimerParcial
+{
+    public partial class frmBaseIndumentaria : Form
+    {
+        public frmBaseIndumentaria()
+        {
+            InitializeComponent();
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

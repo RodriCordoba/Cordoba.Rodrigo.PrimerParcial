@@ -4,6 +4,9 @@
     <Compile Update="FrmAgregar.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="frmBaseIndumentaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="FrmEliminar.cs">
       <SubType>Form</SubType>
     </Compile>

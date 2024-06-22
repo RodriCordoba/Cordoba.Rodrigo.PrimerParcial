@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             Prenda = new Label();
-            button1 = new Button();
             txtCodigo = new TextBox();
             lblCodigo = new Label();
             textBoxCantidad = new TextBox();
             Cantidad = new Label();
-            btnCancelar = new Button();
             radioButton1 = new RadioButton();
             cmbMaterial = new ComboBox();
             rdbCampera = new RadioButton();
@@ -47,6 +45,21 @@
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
+            // btnAceptar
+            // 
+            btnAceptar.BackColor = Color.LimeGreen;
+            btnAceptar.ForeColor = Color.Black;
+            btnAceptar.Location = new Point(170, 250);
+            btnAceptar.Text = "Agregar";
+            btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.BackColor = SystemColors.ActiveCaption;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = false;
+            // 
             // Prenda
             // 
             Prenda.AutoSize = true;
@@ -55,18 +68,6 @@
             Prenda.Size = new Size(44, 15);
             Prenda.TabIndex = 0;
             Prenda.Text = "Prenda";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.LimeGreen;
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(120, 250);
-            button1.Name = "button1";
-            button1.Size = new Size(150, 70);
-            button1.TabIndex = 2;
-            button1.Text = "Agregar";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
             // 
             // txtCodigo
             // 
@@ -99,17 +100,6 @@
             Cantidad.Size = new Size(55, 15);
             Cantidad.TabIndex = 5;
             Cantidad.Text = "Cantidad";
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.BackColor = SystemColors.InactiveCaption;
-            btnCancelar.Location = new Point(450, 250);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(150, 70);
-            btnCancelar.TabIndex = 7;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
             // 
             // radioButton1
             // 
@@ -219,19 +209,29 @@
             Controls.Add(rdbCampera);
             Controls.Add(cmbMaterial);
             Controls.Add(radioButton1);
-            Controls.Add(btnCancelar);
             Controls.Add(textBoxCantidad);
             Controls.Add(Cantidad);
             Controls.Add(txtCodigo);
             Controls.Add(lblCodigo);
-            Controls.Add(button1);
             Controls.Add(Prenda);
             ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmAgregar";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = " ";
             Load += FrmAgregar_Load;
+            Controls.SetChildIndex(Prenda, 0);
+            Controls.SetChildIndex(lblCodigo, 0);
+            Controls.SetChildIndex(txtCodigo, 0);
+            Controls.SetChildIndex(Cantidad, 0);
+            Controls.SetChildIndex(textBoxCantidad, 0);
+            Controls.SetChildIndex(btnCancelar, 0);
+            Controls.SetChildIndex(radioButton1, 0);
+            Controls.SetChildIndex(cmbMaterial, 0);
+            Controls.SetChildIndex(rdbCampera, 0);
+            Controls.SetChildIndex(rdbRemera, 0);
+            Controls.SetChildIndex(lblMaterial, 0);
+            Controls.SetChildIndex(groupBox1, 0);
+            Controls.SetChildIndex(btnAceptar, 0);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -241,12 +241,10 @@
         #endregion
 
         private Label Prenda;
-        private Button button1;
         private TextBox txtCodigo;
         private Label lblCodigo;
         private TextBox textBoxCantidad;
         private Label Cantidad;
-        private Button btnCancelar;
         private RadioButton radioButton1;
         private ComboBox cmbMaterial;
         private RadioButton rdbCampera;

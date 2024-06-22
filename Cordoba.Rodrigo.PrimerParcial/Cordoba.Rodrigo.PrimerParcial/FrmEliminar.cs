@@ -13,7 +13,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
     /// <summary>
     /// Clase que representa el formulario de confirmación de eliminación de una prenda.
     /// </summary>
-    public partial class FrmEliminar : Form
+    public partial class FrmEliminar : frmBaseIndumentaria
     {
         private FrmInicio inicio;
         /// <summary>
@@ -53,12 +53,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Close();
             inicio.Show();
         }
-        /// <summary>
-        /// Método invocado al hacer clic en el botón "Eliminar".
-        /// </summary>
-        /// <param name="sender">Objeto que generó el evento.</param>
-        /// <param name="e">Argumentos del evento.</param>
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             Confirmado = true;
             this.Close();

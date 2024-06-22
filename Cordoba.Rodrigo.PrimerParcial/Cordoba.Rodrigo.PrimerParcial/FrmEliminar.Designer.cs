@@ -28,32 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnEliminar = new Button();
-            btnCancelar = new Button();
             lblConfirmar = new Label();
             SuspendLayout();
             // 
-            // btnEliminar
+            // btnAceptar
             // 
-            btnEliminar.BackColor = Color.Red;
-            btnEliminar.Location = new Point(103, 200);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(100, 50);
-            btnEliminar.TabIndex = 0;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = false;
-            btnEliminar.Click += btnEliminar_Click;
+            btnAceptar.BackColor = Color.Red;
+            btnAceptar.Location = new Point(105, 200);
+            btnAceptar.Size = new Size(100, 50);
+            btnAceptar.Text = "Eliminar";
+            btnAceptar.UseVisualStyleBackColor = false;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
-            btnCancelar.BackColor = SystemColors.InactiveCaption;
-            btnCancelar.Location = new Point(328, 200);
-            btnCancelar.Name = "btnCancelar";
+            btnCancelar.BackColor = SystemColors.ActiveCaption;
+            btnCancelar.Location = new Point(329, 200);
             btnCancelar.Size = new Size(100, 50);
-            btnCancelar.TabIndex = 1;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
             // 
             // lblConfirmar
             // 
@@ -71,19 +64,15 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(533, 262);
             Controls.Add(lblConfirmar);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnEliminar);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "FrmEliminar";
-            StartPosition = FormStartPosition.CenterScreen;
+            Controls.SetChildIndex(btnCancelar, 0);
+            Controls.SetChildIndex(lblConfirmar, 0);
+            Controls.SetChildIndex(btnAceptar, 0);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Button btnEliminar;
-        private Button btnCancelar;
         private Label lblConfirmar;
     }
 }
