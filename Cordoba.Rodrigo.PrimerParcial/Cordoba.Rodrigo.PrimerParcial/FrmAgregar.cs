@@ -4,17 +4,10 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
-    /// <summary>
-    /// Clase que representa el formulario para agregar una nueva prenda de indumentaria.
-    /// </summary>
     public partial class FrmAgregar : frmBaseIndumentaria
     {
         private FrmInicio inicio;
 
-        /// <summary>
-        /// Constructor de la clase FrmAgregar.
-        /// </summary>
-        /// <param name="inicio">Instancia del formulario de inicio.</param>
         public FrmAgregar(FrmInicio inicio)
         {
             InitializeComponent();
@@ -30,6 +23,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             radioButton1.CheckedChanged += RadioButton_CheckedChanged;
             rdbRemera.CheckedChanged += RadioButton_CheckedChanged;
         }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidad;
@@ -53,7 +47,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
                     }
                     else if (rdbCampera.Checked)
                     {
-                        prenda = new Campera(codigo, cantidad, material, rdbCampera.Checked);
+                        prenda = new Campera(codigo, cantidad, material, rdbCapucha.Checked);
                     }
 
                     if (prenda != null)
@@ -102,6 +96,12 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 rdbBermuda.Visible = false;
                 rdbEstampado.Visible = true;
             }
+            else
+            {
+                rdbCapucha.Visible = false;
+                rdbBermuda.Visible = false;
+                rdbEstampado.Visible = false;
+            }
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -115,8 +115,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void FrmAgregar_Load(object sender, EventArgs e)
         {
-
         }
-
     }
 }

@@ -53,7 +53,7 @@
             btnAceptar.Location = new Point(117, 250);
             btnAceptar.Text = "Modificar";
             btnAceptar.UseVisualStyleBackColor = false;
-            btnAceptar.Click += btnAceptar_Click_1;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // textBox2
             // 

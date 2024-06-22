@@ -226,7 +226,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al cargar datos desde JSON: " + ex.Message);
             }
         }
-
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
