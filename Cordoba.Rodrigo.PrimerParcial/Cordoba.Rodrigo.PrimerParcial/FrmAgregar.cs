@@ -1,6 +1,7 @@
 ﻿using Entidades.Indumentaria;
 using System;
 using System.Data.SqlClient;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
@@ -25,10 +26,23 @@ namespace Cordoba.Rodrigo.PrimerParcial
             rdbRemera.CheckedChanged += RadioButton_CheckedChanged;
         }
 
+        public static int AgregarIndumentaria(Indumentaria indumentaria)
+        {
+            int retorno = 0;
+
+            using (SqlConnection conexion = BDGeneral.ObtenerConexion())
+            {
+                string query = "insert into Indumentaria (codigo, cantidad, tipoMaterial, caracteristicaPropia, Prenda) values()";
+                SqlCommand comando = new SqlCommand();
+
+            }
+            return retorno;
+        }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidad;
             string codigo;
+
 
             if (int.TryParse(textBoxCantidad.Text, out cantidad) && !string.IsNullOrEmpty(txtCodigo.Text))
             {
