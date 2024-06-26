@@ -1,5 +1,6 @@
 ﻿using Entidades.Indumentaria;
 using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial

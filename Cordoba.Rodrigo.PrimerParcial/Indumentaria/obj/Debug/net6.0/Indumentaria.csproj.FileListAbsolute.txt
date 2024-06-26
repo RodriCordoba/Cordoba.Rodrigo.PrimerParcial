@@ -9,3 +9,4 @@ C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\refint\Indumentaria.dll
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.pdb
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\ref\Indumentaria.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Indumentaria\obj\Debug\net6.0\Indumentaria.csproj.AssemblyReference.cache

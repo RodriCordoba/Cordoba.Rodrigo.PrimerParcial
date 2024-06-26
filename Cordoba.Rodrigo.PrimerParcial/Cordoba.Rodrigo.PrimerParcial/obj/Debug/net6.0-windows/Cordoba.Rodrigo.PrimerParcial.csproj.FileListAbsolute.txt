@@ -23,3 +23,9 @@ C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\Indumentaria.pdb
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.csproj.CopyComplete
 C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\obj\Debug\net6.0-windows\Cordoba.Rodrigo.PrimerParcial.frmBaseIndumentaria.resources
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\rodri\OneDrive\Escritorio\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\Cordoba.Rodrigo.PrimerParcial\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

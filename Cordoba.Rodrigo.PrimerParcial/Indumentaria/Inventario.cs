@@ -4,80 +4,83 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class Inventario
+namespace Entidades.Indumentaria
 {
-    private List<Indumentaria> prendas;
-
-    public Inventario()
+    public class Inventario
     {
-        this.prendas = new List<Indumentaria>();
-    }
+        private List<Indumentaria> prendas;
 
-    public static Inventario operator +(Inventario inventario, Indumentaria prenda)
-    {
-        if (!inventario.prendas.Contains(prenda))
+        public Inventario()
         {
-            inventario.prendas.Add(prenda);
+            this.prendas = new List<Indumentaria>();
         }
-        return inventario;
-    }
 
-    public static Inventario operator -(Inventario inventario, Indumentaria prenda)
-    {
-        if (inventario.prendas.Contains(prenda))
+        public static Inventario operator +(Inventario inventario, Indumentaria prenda)
         {
-            inventario.prendas.Remove(prenda);
+            if (!inventario.prendas.Contains(prenda))
+            {
+                inventario.prendas.Add(prenda);
+            }
+            return inventario;
         }
-        return inventario;
-    }
 
-    public static bool operator ==(Inventario inventario, Indumentaria prenda)
-    {
-        return inventario.prendas.Contains(prenda);
-    }
-
-    public static bool operator !=(Inventario inventario, Indumentaria prenda)
-    {
-        return !(inventario == prenda);
-    }
-
-    public override bool Equals(object? obj)
-    {
-        if (obj is Inventario other)
+        public static Inventario operator -(Inventario inventario, Indumentaria prenda)
         {
-            return this.prendas.SequenceEqual(other.prendas);
+            if (inventario.prendas.Contains(prenda))
+            {
+                inventario.prendas.Remove(prenda);
+            }
+            return inventario;
         }
-        return false;
-    }
 
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(prendas);
-    }
-
-    public void OrdenarPorCantidad(bool ascendente = true)
-    {
-        if (ascendente)
-            prendas = prendas.OrderBy(p => p.Cantidad).ToList();
-        else
-            prendas = prendas.OrderByDescending(p => p.Cantidad).ToList();
-    }
-
-    public void OrdenarPorCodigo(bool ascendente = true)
-    {
-        if (ascendente)
-            prendas = prendas.OrderBy(p => p.Codigo).ToList();
-        else
-            prendas = prendas.OrderByDescending(p => p.Codigo).ToList();
-    }
-
-    public override string ToString()
-    {
-        StringBuilder sb = new StringBuilder();
-        foreach (Indumentaria prenda in prendas)
+        public static bool operator ==(Inventario inventario, Indumentaria prenda)
         {
-            sb.AppendLine(prenda.ToString());
+            return inventario.prendas.Contains(prenda);
         }
-        return sb.ToString();
+
+        public static bool operator !=(Inventario inventario, Indumentaria prenda)
+        {
+            return !(inventario == prenda);
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj is Inventario other)
+            {
+                return this.prendas.SequenceEqual(other.prendas);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(prendas);
+        }
+
+        public void OrdenarPorCantidad(bool ascendente = true)
+        {
+            if (ascendente)
+                prendas = prendas.OrderBy(p => p.Cantidad).ToList();
+            else
+                prendas = prendas.OrderByDescending(p => p.Cantidad).ToList();
+        }
+
+        public void OrdenarPorCodigo(bool ascendente = true)
+        {
+            if (ascendente)
+                prendas = prendas.OrderBy(p => p.Codigo).ToList();
+            else
+                prendas = prendas.OrderByDescending(p => p.Codigo).ToList();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (Indumentaria prenda in prendas)
+            {
+                sb.AppendLine(prenda.ToString());
+            }
+            return sb.ToString();
+        }
     }
 }
