@@ -30,19 +30,55 @@ namespace Cordoba.Rodrigo.PrimerParcial
         {
             int retorno = 0;
 
-            using (SqlConnection conexion = BDGeneral.ObtenerConexion())
+            try
             {
-                string query = "insert into Indumentaria (codigo, cantidad, tipoMaterial, caracteristicaPropia, Prenda) values()";
-                SqlCommand comando = new SqlCommand();
+                using (SqlConnection conexion = BDGeneral.ObtenerConexion())
+                {
+                    string query = "INSERT INTO Indumentaria (codigo, cantidad, tipoMaterial, caracteristicaPropia, prenda) " +
+                                   "VALUES (@codigo, @cantidad, @tipoMaterial, @caracteristicaPropia, @prenda)";
+                    SqlCommand comando = new SqlCommand(query, conexion);
 
+                    comando.Parameters.AddWithValue("@codigo", indumentaria.Codigo);
+                    comando.Parameters.AddWithValue("@cantidad", indumentaria.Cantidad);
+                    comando.Parameters.AddWithValue("@tipoMaterial", indumentaria.TipoMaterial.ToString());
+
+                    if (indumentaria is Campera campera)
+                    {
+                        comando.Parameters.AddWithValue("@caracteristicaPropia", campera.TieneCapucha);
+                        comando.Parameters.AddWithValue("@prenda", "Campera");
+                    }
+                    else if (indumentaria is Pantalon pantalon)
+                    {
+                        comando.Parameters.AddWithValue("@caracteristicaPropia", pantalon.EsBermuda);
+                        comando.Parameters.AddWithValue("@prenda", "Pantalon");
+                    }
+                    else if (indumentaria is Remera remera)
+                    {
+                        comando.Parameters.AddWithValue("@caracteristicaPropia", remera.TieneEstampado);
+                        comando.Parameters.AddWithValue("@prenda", "Remera");
+                    }
+
+                    retorno = comando.ExecuteNonQuery();
+                }
             }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error al ejecutar la consulta: {ex.Message}");
+                MessageBox.Show($"Error al ejecutar la consulta: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.Message}");
+                MessageBox.Show($"Error inesperado: {ex.Message}");
+            }
+
             return retorno;
         }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidad;
             string codigo;
-
 
             if (int.TryParse(textBoxCantidad.Text, out cantidad) && !string.IsNullOrEmpty(txtCodigo.Text))
             {
@@ -67,8 +103,18 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
                     if (prenda != null)
                     {
-                        inicio.AgregarPrenda(prenda);
-                        this.Close();
+                        int resultado = AgregarIndumentaria(prenda);
+                        if (resultado > 0)
+                        {
+                            MessageBox.Show("Guardado exitosamente.");
+                            inicio.AgregarPrenda(prenda);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo guardar.");
+                            Console.WriteLine("No se pudo guardar la prenda en la base de datos.");
+                        }
                     }
                     else
                     {
