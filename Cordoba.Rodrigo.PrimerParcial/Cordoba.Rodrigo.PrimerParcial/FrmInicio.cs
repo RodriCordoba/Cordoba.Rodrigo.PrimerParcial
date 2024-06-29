@@ -3,30 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Json;
 using System.Text.Json;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
-    /// <summary>
-    /// Clase que representa el formulario principal de la aplicación.
-    /// </summary>
     public partial class FrmInicio : Form
     {
         private List<Indumentaria> listaIndumentaria;
 
-        /// <summary>
-        /// Constructor de la clase FrmInicio.
-        /// </summary>
-        /// <param name="nombreOperador">Nombre del operador que inició sesión.</param>
         public FrmInicio(string nombreOperador, string puesto)
         {
             InitializeComponent();
             this.IsMdiContainer = true;
             FrmInicio_Load();
             labelOperador.Text = "Operador: " + nombreOperador + " Puesto: " + puesto;
+
             if (puesto == "supervisor")
             {
                 btnEliminar.Enabled = false;
@@ -41,13 +34,16 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 button1.Enabled = false;
                 button1.Hide();
             }
+
             listaIndumentaria = new List<Indumentaria>();
+            //ActualizarListaDesdeDB();
         }
 
         private void FrmInicio_Load()
         {
             string fechaActual = DateTime.Today.ToString("dd/MM/yyyy");
             labelFecha.Text = "Fecha: " + fechaActual;
+            //ActualizarListaDesdeDB();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,7 +75,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ActualizarLista();
             FrmAgregar agregar = new FrmAgregar(this);
             agregar.Show();
             this.Hide();
@@ -91,8 +86,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
             {
                 Indumentaria prendaSeleccionada = (Indumentaria)listInd.SelectedItem;
                 string descripcionPrenda = prendaSeleccionada.ToString();
-
-                ActualizarLista();
 
                 FrmEliminar frmEliminar = new FrmEliminar(this, descripcionPrenda);
                 frmEliminar.ShowDialog();
@@ -112,10 +105,10 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         public void AgregarPrenda(Indumentaria prenda)
         {
-
             listaIndumentaria.Add(prenda);
             ActualizarLista();
         }
+
         public void ActualizarPrenda(Indumentaria prenda)
         {
             for (int i = 0; i < listaIndumentaria.Count; i++)
@@ -130,11 +123,19 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
             ActualizarLista();
         }
+
         private void ActualizarLista()
         {
             listInd.DataSource = null;
             listInd.DataSource = listaIndumentaria;
         }
+
+        private void ActualizarListaDesdeDB()
+        {
+            listaIndumentaria = FrmAgregar.PresentarRegistro();
+            ActualizarLista();
+        }
+
         private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria.OrderBy(prenda =>
@@ -146,7 +147,8 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }).ThenBy(prenda => prenda.Cantidad).ToList();
             ActualizarLista();
         }
-        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo xml
+
+        private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.xml";
             try
@@ -163,7 +165,8 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al guardar datos en XML: " + ex.Message);
             }
         }
-        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)//guarda el archivo json
+
+        private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.json";
             try
@@ -226,14 +229,17 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al cargar datos desde JSON: " + ex.Message);
             }
         }
+
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }
+
         private void labelFecha_Click(object sender, EventArgs e)
         {
 
         }
+
         private void labelOperador_Click(object sender, EventArgs e)
         {
 

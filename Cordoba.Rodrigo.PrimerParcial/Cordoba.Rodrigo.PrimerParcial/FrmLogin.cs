@@ -36,11 +36,13 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 else
                 {
                     MessageBox.Show("El archivo JSON no existe en la ruta especificada.");
+                    empleados = new List<Empleado>();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los empleados desde el archivo JSON: " + ex.Message);
+                empleados = new List<Empleado>(); 
             }
         }
         /// <summary>
@@ -54,20 +56,22 @@ namespace Cordoba.Rodrigo.PrimerParcial
             string contraseña = txtContraseña.Text;
 
             bool credencialesValidas = false;
+            Empleado empleadoValido = null;
             foreach (Empleado empleado in empleados)
             {
                 if (string.Equals(empleado.Correo, correo, StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(empleado.Clave, contraseña))
                 {
                     credencialesValidas = true;
+                    empleadoValido = empleado;
                     break;
                 }
             }
 
             if (credencialesValidas)
             {
-                string nombreOperador = empleados.Find(emp => emp.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase)).Nombre;
-                string puesto = empleados.Find(emp => emp.Correo.Equals(correo, StringComparison.OrdinalIgnoreCase)).Perfil;
+                string nombreOperador = empleadoValido.Nombre;
+                string puesto = empleadoValido.Perfil;
                 MessageBox.Show("Inicio de sesión exitoso!");
                 FrmInicio formInicio = new FrmInicio(nombreOperador, puesto);
                 formInicio.Show();

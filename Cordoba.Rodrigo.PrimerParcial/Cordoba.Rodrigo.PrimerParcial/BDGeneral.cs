@@ -11,6 +11,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             conexion.Open();
             return conexion;
         }
+
         public static void ProbarConexion()
         {
             try
@@ -30,7 +31,5 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 Console.WriteLine($"Error inesperado: {ex.Message}");
             }
         }
-
     }
-
 }

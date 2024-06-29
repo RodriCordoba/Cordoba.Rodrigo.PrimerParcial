@@ -1,7 +1,7 @@
 ﻿using Entidades.Indumentaria;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
@@ -73,6 +73,67 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
 
             return retorno;
+        }
+
+        public static List<Indumentaria> PresentarRegistro()
+        {
+            List<Indumentaria> lista = new List<Indumentaria>();
+
+            try
+            {
+                using (SqlConnection conexion = BDGeneral.ObtenerConexion())
+                {
+                    string query = "SELECT * FROM Indumentaria";
+                    SqlCommand comando = new SqlCommand(query, conexion);
+
+                    using (SqlDataReader reader = comando.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string codigo = reader.GetString(reader.GetOrdinal("codigo"));
+                            int cantidad = reader.GetInt32(reader.GetOrdinal("cantidad"));
+                            EMaterial tipoMaterial = (EMaterial)Enum.Parse(typeof(EMaterial), reader.GetString(reader.GetOrdinal("tipoMaterial")));
+                            string prenda = reader.GetString(reader.GetOrdinal("prenda"));
+
+                            Indumentaria indumentaria;
+
+                            if (prenda == "Campera")
+                            {
+                                bool tieneCapucha = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                indumentaria = new Campera(codigo, cantidad, tipoMaterial, tieneCapucha);
+                            }
+                            else if (prenda == "Pantalon")
+                            {
+                                bool esBermuda = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                indumentaria = new Pantalon(codigo, cantidad, tipoMaterial, esBermuda);
+                            }
+                            else if (prenda == "Remera")
+                            {
+                                bool tieneEstampado = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                indumentaria = new Remera(codigo, cantidad, tipoMaterial, tieneEstampado);
+                            }
+                            else
+                            {
+                                continue;
+                            }
+
+                            lista.Add(indumentaria);
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine($"Error al ejecutar la consulta: {ex.Message}");
+                MessageBox.Show($"Error al ejecutar la consulta: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error inesperado: {ex.Message}");
+                MessageBox.Show($"Error inesperado: {ex.Message}");
+            }
+
+            return lista;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -164,6 +225,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 rdbEstampado.Visible = false;
             }
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
