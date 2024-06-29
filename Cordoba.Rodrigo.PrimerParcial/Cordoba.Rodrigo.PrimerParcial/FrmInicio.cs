@@ -36,7 +36,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
 
             listaIndumentaria = new List<Indumentaria>();
-            //ActualizarListaDesdeDB();
+            ActualizarListaDesdeDB();
         }
 
         private void FrmInicio_Load()

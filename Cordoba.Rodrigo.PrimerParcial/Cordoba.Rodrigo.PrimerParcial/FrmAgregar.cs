@@ -90,34 +90,33 @@ namespace Cordoba.Rodrigo.PrimerParcial
                     {
                         while (reader.Read())
                         {
-                            string codigo = reader.GetString(reader.GetOrdinal("codigo"));
-                            int cantidad = reader.GetInt32(reader.GetOrdinal("cantidad"));
-                            EMaterial tipoMaterial = (EMaterial)Enum.Parse(typeof(EMaterial), reader.GetString(reader.GetOrdinal("tipoMaterial")));
-                            string prenda = reader.GetString(reader.GetOrdinal("prenda"));
+                            string codigo = reader["Codigo"] as string;
+                            int cantidad = reader.GetInt32(reader.GetOrdinal("Cantidad"));
+                            EMaterial tipoMaterial = (EMaterial)Enum.Parse(typeof(EMaterial), reader["TipoMaterial"] as string);
+                            string prenda = reader["Prenda"] as string;
 
-                            Indumentaria indumentaria;
+                            Indumentaria indumentaria = null;
 
                             if (prenda == "Campera")
                             {
-                                bool tieneCapucha = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                bool tieneCapucha = reader.IsDBNull(reader.GetOrdinal("caracteristicaPropia")) ? false : reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
                                 indumentaria = new Campera(codigo, cantidad, tipoMaterial, tieneCapucha);
                             }
                             else if (prenda == "Pantalon")
                             {
-                                bool esBermuda = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                bool esBermuda = reader.IsDBNull(reader.GetOrdinal("caracteristicaPropia")) ? false : reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
                                 indumentaria = new Pantalon(codigo, cantidad, tipoMaterial, esBermuda);
                             }
                             else if (prenda == "Remera")
                             {
-                                bool tieneEstampado = reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
+                                bool tieneEstampado = reader.IsDBNull(reader.GetOrdinal("caracteristicaPropia")) ? false : reader.GetBoolean(reader.GetOrdinal("caracteristicaPropia"));
                                 indumentaria = new Remera(codigo, cantidad, tipoMaterial, tieneEstampado);
                             }
-                            else
-                            {
-                                continue;
-                            }
 
-                            lista.Add(indumentaria);
+                            if (indumentaria != null)
+                            {
+                                lista.Add(indumentaria);
+                            }
                         }
                     }
                 }
@@ -135,6 +134,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
             return lista;
         }
+
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
