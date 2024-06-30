@@ -1,5 +1,6 @@
 ﻿using Entidades.Indumentaria;
 using System;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -24,23 +25,27 @@ namespace Cordoba.Rodrigo.PrimerParcial
             textBoxCodigo.Text = prenda.Codigo;
 
             ConfigurarControlesEspecificos(prenda);
-            DesmarcarRadioButton(); 
+            DesmarcarRadioButton();
         }
+
         private void DesmarcarRadioButton()
         {
             rdbCapucha.Checked = false;
             rdbBermuda.Checked = false;
             rdbEstampado.Checked = false;
         }
+
         private void FrmModificar_FormClosed(object sender, FormClosedEventArgs e)
         {
             inicio.Show();
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
             inicio.Show();
         }
+
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             prendaSeleccionada.SetCantidad(int.Parse(textBox2.Text));
@@ -54,6 +59,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Close();
             inicio.Show();
         }
+
         private void ConfigurarControlesEspecificos(Indumentaria prenda)
         {
             rdbCapucha.Visible = false;
@@ -76,6 +82,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 rdbEstampado.Checked = ((Remera)prenda).TieneEstampado;
             }
         }
+
         private void GuardarValoresEspecificos()
         {
             if (prendaSeleccionada is Campera)
@@ -90,6 +97,23 @@ namespace Cordoba.Rodrigo.PrimerParcial
             {
                 ((Remera)prendaSeleccionada).TieneEstampado = rdbEstampado.Checked;
             }
+        }
+        public static int ModificarIndumentaria(Indumentaria indumentaria)
+        {
+            int resultado = 0;
+            using (SqlConnection conexion = BDGeneral.ObtenerConexion())
+            {
+                string query = "UPDATE Indumentaria SET Codigo = @codigo, Cantidad = @cantidad WHERE Codigo = @codigoOriginal";
+                SqlCommand comando = new SqlCommand(query, conexion);
+
+                comando.Parameters.AddWithValue("@codigo", indumentaria.Codigo);
+                comando.Parameters.AddWithValue("@cantidad", indumentaria.Cantidad);
+                comando.Parameters.AddWithValue("@codigoOriginal", indumentaria.Codigo);
+
+                resultado = comando.ExecuteNonQuery();
+                conexion.Close();
+            }
+            return resultado;
         }
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {

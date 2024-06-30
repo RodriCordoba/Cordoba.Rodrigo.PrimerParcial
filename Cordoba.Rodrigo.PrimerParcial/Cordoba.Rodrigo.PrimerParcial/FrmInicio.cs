@@ -1,6 +1,7 @@
 ﻿using Entidades.Indumentaria;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
@@ -43,7 +44,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
         {
             string fechaActual = DateTime.Today.ToString("dd/MM/yyyy");
             labelFecha.Text = "Fecha: " + fechaActual;
-            //ActualizarListaDesdeDB();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -92,9 +92,17 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
                 if (frmEliminar.Confirmado)
                 {
-                    listaIndumentaria.Remove(prendaSeleccionada);
-                    ActualizarLista();
-                    MessageBox.Show("Prenda eliminada con éxito.");
+                    int resultado = FrmEliminar.EliminarIndumentariaPorCodigo(prendaSeleccionada.Codigo);
+                    if (resultado > 0)
+                    {
+                        listaIndumentaria.Remove(prendaSeleccionada);
+                        ActualizarLista();
+                        MessageBox.Show("Prenda eliminada con éxito.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al eliminar la prenda de la base de datos.");
+                    }
                 }
             }
             else
@@ -102,7 +110,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Seleccione una prenda para eliminar.");
             }
         }
-
         public void AgregarPrenda(Indumentaria prenda)
         {
             listaIndumentaria.Add(prenda);
@@ -115,27 +122,31 @@ namespace Cordoba.Rodrigo.PrimerParcial
             {
                 if (listaIndumentaria[i].Codigo == prenda.Codigo)
                 {
-                    listaIndumentaria[i].SetCantidad(prenda.Cantidad);
-                    listaIndumentaria[i].SetTipoMaterial(prenda.TipoMaterial);
-                    listaIndumentaria[i].SetCodigo(prenda.Codigo);
+                    listaIndumentaria[i] = prenda;
                     break;
                 }
             }
+            int resultado = FrmModificar.ModificarIndumentaria(prenda);
+            if (resultado > 0)
+            {
+                MessageBox.Show("Prenda actualizada con éxito.");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo actualizar la prenda en la base de datos.");
+            }
             ActualizarLista();
         }
-
         private void ActualizarLista()
         {
             listInd.DataSource = null;
             listInd.DataSource = listaIndumentaria;
         }
-
         private void ActualizarListaDesdeDB()
         {
             listaIndumentaria = FrmAgregar.PresentarRegistro();
             ActualizarLista();
         }
-
         private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria.OrderBy(prenda =>
@@ -229,20 +240,14 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al cargar datos desde JSON: " + ex.Message);
             }
         }
-
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-
         }
-
         private void labelFecha_Click(object sender, EventArgs e)
         {
-
         }
-
         private void labelOperador_Click(object sender, EventArgs e)
         {
-
         }
     }
 }
