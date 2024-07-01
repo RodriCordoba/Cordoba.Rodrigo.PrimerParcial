@@ -45,6 +45,7 @@
             cargarJSONToolStripMenuItem = new ToolStripMenuItem();
             ordenarListaToolStripMenuItem = new ToolStripMenuItem();
             listInd = new ListBox();
+            pbrTask = new ProgressBar();
             statusStrip1.SuspendLayout();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -195,12 +196,22 @@
             listInd.Size = new Size(776, 259);
             listInd.TabIndex = 5;
             // 
+            // pbrTask
+            // 
+            pbrTask.Location = new Point(13, 321);
+            pbrTask.Name = "pbrTask";
+            pbrTask.Size = new Size(775, 23);
+            pbrTask.TabIndex = 6;
+            pbrTask.UseWaitCursor = true;
+            pbrTask.Visible = false;
+            // 
             // FrmInicio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(pbrTask);
             Controls.Add(listInd);
             Controls.Add(btnEliminar);
             Controls.Add(button2);
@@ -238,5 +249,6 @@
         private ToolStripMenuItem ordenarListaToolStripMenuItem;
         private ToolStripMenuItem cargarXMLToolStripMenuItem;
         private ToolStripMenuItem cargarJSONToolStripMenuItem;
+        private ProgressBar pbrTask;
     }
 }

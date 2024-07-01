@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
@@ -80,7 +81,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Hide();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (listInd.SelectedItem != null)
             {
@@ -92,17 +93,37 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
                 if (frmEliminar.Confirmado)
                 {
-                    int resultado = FrmEliminar.EliminarIndumentariaPorCodigo(prendaSeleccionada.Codigo);
-                    if (resultado > 0)
+                    pbrTask.Value = 0;
+                    pbrTask.Visible = true;
+
+                    await Task.Run(() =>
                     {
-                        listaIndumentaria.Remove(prendaSeleccionada);
-                        ActualizarLista();
-                        MessageBox.Show("Prenda eliminada con éxito.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error al eliminar la prenda de la base de datos.");
-                    }
+                        for (int i = 0; i <= 100; i++)
+                        {
+                            Task.Delay(50).Wait();
+                            Invoke(new Action(() => pbrTask.Value = i));
+                        }
+
+                        int resultado = FrmEliminar.EliminarIndumentariaPorCodigo(prendaSeleccionada.Codigo);
+                        if (resultado > 0)
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                listaIndumentaria.Remove(prendaSeleccionada);
+                                ActualizarLista();
+                                MessageBox.Show("Prenda eliminada con éxito.");
+                            }));
+                        }
+                        else
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                MessageBox.Show("Error al eliminar la prenda de la base de datos.");
+                            }));
+                        }
+                    });
+
+                    pbrTask.Visible = false;
                 }
             }
             else
@@ -110,6 +131,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Seleccione una prenda para eliminar.");
             }
         }
+
         public void AgregarPrenda(Indumentaria prenda)
         {
             listaIndumentaria.Add(prenda);
@@ -137,16 +159,19 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
             ActualizarLista();
         }
+
         private void ActualizarLista()
         {
             listInd.DataSource = null;
             listInd.DataSource = listaIndumentaria;
         }
+
         private void ActualizarListaDesdeDB()
         {
             listaIndumentaria = FrmAgregar.PresentarRegistro();
             ActualizarLista();
         }
+
         private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria.OrderBy(prenda =>
@@ -240,12 +265,15 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Error al cargar datos desde JSON: " + ex.Message);
             }
         }
+
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
         }
+
         private void labelFecha_Click(object sender, EventArgs e)
         {
         }
+
         private void labelOperador_Click(object sender, EventArgs e)
         {
         }
