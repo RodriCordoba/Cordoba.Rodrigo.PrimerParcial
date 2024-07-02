@@ -9,7 +9,7 @@ namespace Entidades.Indumentaria
     [XmlInclude(typeof(Remera))]
     [XmlInclude(typeof(Pantalon))]
     [JsonConverter(typeof(IndumentariaConvertidor))]
-    public abstract class Indumentaria
+    public abstract class Indumentaria : IIndumentaria<EMaterial>
     {
         public string Codigo { get; set; }
         public int Cantidad { get; set; }

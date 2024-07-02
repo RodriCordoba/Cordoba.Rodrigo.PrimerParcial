@@ -2,7 +2,7 @@
 
 namespace Entidades.Indumentaria
 {
-    public class Remera : Indumentaria
+    public class Remera : Indumentaria, IIndumentaria<EMaterial>
     {
         public bool TieneEstampado { get; set; }
 

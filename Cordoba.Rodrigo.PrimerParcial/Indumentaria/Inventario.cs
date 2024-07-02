@@ -1,21 +1,20 @@
-﻿using Entidades.Indumentaria;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace Entidades.Indumentaria
 {
-    public class Inventario
+    public class Inventario<T> where T : IIndumentaria<EMaterial>
     {
-        private List<Indumentaria> prendas;
+        private List<T> prendas;
 
         public Inventario()
         {
-            this.prendas = new List<Indumentaria>();
+            this.prendas = new List<T>();
         }
 
-        public static Inventario operator +(Inventario inventario, Indumentaria prenda)
+        public static Inventario<T> operator +(Inventario<T> inventario, T prenda)
         {
             if (!inventario.prendas.Contains(prenda))
             {
@@ -24,7 +23,7 @@ namespace Entidades.Indumentaria
             return inventario;
         }
 
-        public static Inventario operator -(Inventario inventario, Indumentaria prenda)
+        public static Inventario<T> operator -(Inventario<T> inventario, T prenda)
         {
             if (inventario.prendas.Contains(prenda))
             {
@@ -33,19 +32,19 @@ namespace Entidades.Indumentaria
             return inventario;
         }
 
-        public static bool operator ==(Inventario inventario, Indumentaria prenda)
+        public static bool operator ==(Inventario<T> inventario, T prenda)
         {
             return inventario.prendas.Contains(prenda);
         }
 
-        public static bool operator !=(Inventario inventario, Indumentaria prenda)
+        public static bool operator !=(Inventario<T> inventario, T prenda)
         {
             return !(inventario == prenda);
         }
 
         public override bool Equals(object? obj)
         {
-            if (obj is Inventario other)
+            if (obj is Inventario<T> other)
             {
                 return this.prendas.SequenceEqual(other.prendas);
             }
@@ -69,14 +68,14 @@ namespace Entidades.Indumentaria
         {
             if (ascendente)
                 prendas = prendas.OrderBy(p => p.Codigo).ToList();
-            else
+            else    
                 prendas = prendas.OrderByDescending(p => p.Codigo).ToList();
         }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Indumentaria prenda in prendas)
+            foreach (T prenda in prendas)
             {
                 sb.AppendLine(prenda.ToString());
             }

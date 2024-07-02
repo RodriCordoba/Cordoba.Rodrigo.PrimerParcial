@@ -1,6 +1,6 @@
 ﻿namespace Entidades.Indumentaria
 {
-    public class Campera : Indumentaria
+    public class Campera : Indumentaria, IIndumentaria<EMaterial>
     {
         public bool TieneCapucha { get; set; }
 

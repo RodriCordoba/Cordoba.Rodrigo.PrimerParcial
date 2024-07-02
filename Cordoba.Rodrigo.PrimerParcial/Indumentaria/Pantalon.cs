@@ -1,6 +1,6 @@
 ﻿namespace Entidades.Indumentaria
 {
-    public class Pantalon : Indumentaria
+    public class Pantalon : Indumentaria, IIndumentaria<EMaterial>
     {
         public bool EsBermuda { get; set; }
 

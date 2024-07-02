@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfIndumentaria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Indumentaria xsi:type="Pantalon">
+    <Codigo>r33</Codigo>
+    <Cantidad>3</Cantidad>
+    <TipoMaterial>Poliester</TipoMaterial>
+    <Items />
+    <EsBermuda>true</EsBermuda>
+  </Indumentaria>
+  <Indumentaria xsi:type="Pantalon">
+    <Codigo>ht6</Codigo>
+    <Cantidad>6</Cantidad>
+    <TipoMaterial>Poliester</TipoMaterial>
+    <Items />
+    <EsBermuda>true</EsBermuda>
+  </Indumentaria>
   <Indumentaria xsi:type="Remera">
-    <Cantidad>0</Cantidad>
-    <TipoMaterial>Algodon</TipoMaterial>
+    <Codigo>h5433prueba</Codigo>
+    <Cantidad>1</Cantidad>
+    <TipoMaterial>Poliester</TipoMaterial>
+    <Items />
+    <TieneEstampado>true</TieneEstampado>
+  </Indumentaria>
+  <Indumentaria xsi:type="Remera">
+    <Codigo>efg3</Codigo>
+    <Cantidad>31</Cantidad>
+    <TipoMaterial>Poliester</TipoMaterial>
     <Items />
     <TieneEstampado>false</TieneEstampado>
   </Indumentaria>
