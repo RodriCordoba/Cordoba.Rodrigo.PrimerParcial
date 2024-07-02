@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Entidades.Indumentaria
 {
-    public class Inventario<T> where T : IIndumentaria<EMaterial>
+    public class Inventario<T> where T : Indumentaria
     {
         private List<T> prendas;
 
@@ -13,22 +13,38 @@ namespace Entidades.Indumentaria
         {
             this.prendas = new List<T>();
         }
+        public class IndumentariaException : Exception
+        {
+            public IndumentariaException(string message) : base(message) { }
+        }
+
+        public class CodigoDuplicadoException : IndumentariaException
+        {
+            public CodigoDuplicadoException(string message) : base(message) { }
+        }
+
+        public class PrendaNoEncontradaException : IndumentariaException
+        {
+            public PrendaNoEncontradaException(string message) : base(message) { }
+        }
 
         public static Inventario<T> operator +(Inventario<T> inventario, T prenda)
         {
-            if (!inventario.prendas.Contains(prenda))
+            if (inventario.prendas.Contains(prenda))
             {
-                inventario.prendas.Add(prenda);
+                throw new CodigoDuplicadoException($"La prenda con código {prenda.Codigo} ya existe en el inventario.");
             }
+            inventario.prendas.Add(prenda);
             return inventario;
         }
 
         public static Inventario<T> operator -(Inventario<T> inventario, T prenda)
         {
-            if (inventario.prendas.Contains(prenda))
+            if (!inventario.prendas.Contains(prenda))
             {
-                inventario.prendas.Remove(prenda);
+                throw new PrendaNoEncontradaException($"La prenda con código {prenda.Codigo} no se encontró en el inventario.");
             }
+            inventario.prendas.Remove(prenda);
             return inventario;
         }
 
