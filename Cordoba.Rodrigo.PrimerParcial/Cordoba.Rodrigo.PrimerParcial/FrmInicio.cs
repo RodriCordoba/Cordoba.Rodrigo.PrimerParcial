@@ -15,6 +15,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
     {
         private List<Indumentaria> listaIndumentaria;
 
+        public List<Indumentaria> ListaIndumentaria
+        {
+            get { return listaIndumentaria; }
+        }
+
         public FrmInicio(string nombreOperador, string puesto)
         {
             InitializeComponent();

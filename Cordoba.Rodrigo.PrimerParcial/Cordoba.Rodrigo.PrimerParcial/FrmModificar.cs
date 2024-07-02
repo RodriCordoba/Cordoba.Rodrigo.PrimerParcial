@@ -48,16 +48,43 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            prendaSeleccionada.SetCantidad(int.Parse(textBox2.Text));
-            prendaSeleccionada.SetTipoMaterial((EMaterial)cmbMaterial.SelectedItem);
-            prendaSeleccionada.SetCodigo(textBoxCodigo.Text);
+            try
+            {
+                string nuevoCodigo = textBoxCodigo.Text;
 
-            GuardarValoresEspecificos();
+                if (inicio.ListaIndumentaria.Any(p => p.Codigo == nuevoCodigo && p != prendaSeleccionada))
+                {
+                    throw new Inventario<Indumentaria>.CodigoDuplicadoException("Ya existe una prenda con ese código.");
+                }
 
-            inicio.ActualizarPrenda(prendaSeleccionada);
+                prendaSeleccionada.SetCantidad(int.Parse(textBox2.Text));
+                prendaSeleccionada.SetTipoMaterial((EMaterial)cmbMaterial.SelectedItem);
+                prendaSeleccionada.SetCodigo(nuevoCodigo);
 
-            this.Close();
-            inicio.Show();
+                GuardarValoresEspecificos();
+
+                int resultado = ModificarIndumentaria(prendaSeleccionada);
+                if (resultado > 0)
+                {
+                    inicio.ActualizarPrenda(prendaSeleccionada);
+                    MessageBox.Show("Prenda modificada con éxito.");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo modificar la prenda en la base de datos.");
+                }
+
+                this.Close();
+                inicio.Show();
+            }
+            catch (Inventario<Indumentaria>.CodigoDuplicadoException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}");
+            }
         }
 
         private void ConfigurarControlesEspecificos(Indumentaria prenda)
@@ -98,16 +125,32 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 ((Remera)prendaSeleccionada).TieneEstampado = rdbEstampado.Checked;
             }
         }
+
         public static int ModificarIndumentaria(Indumentaria indumentaria)
         {
             int resultado = 0;
             using (SqlConnection conexion = BDGeneral.ObtenerConexion())
             {
-                string query = "UPDATE Indumentaria SET Codigo = @codigo, Cantidad = @cantidad WHERE Codigo = @codigoOriginal";
+                string query = "UPDATE Indumentaria SET Codigo = @codigo, Cantidad = @cantidad, TipoMaterial = @tipoMaterial, CaracteristicaPropia = @caracteristicaPropia WHERE Codigo = @codigoOriginal";
                 SqlCommand comando = new SqlCommand(query, conexion);
 
                 comando.Parameters.AddWithValue("@codigo", indumentaria.Codigo);
                 comando.Parameters.AddWithValue("@cantidad", indumentaria.Cantidad);
+                comando.Parameters.AddWithValue("@tipoMaterial", indumentaria.TipoMaterial.ToString());
+
+                if (indumentaria is Campera)
+                {
+                    comando.Parameters.AddWithValue("@caracteristicaPropia", ((Campera)indumentaria).TieneCapucha);
+                }
+                else if (indumentaria is Pantalon)
+                {
+                    comando.Parameters.AddWithValue("@caracteristicaPropia", ((Pantalon)indumentaria).EsBermuda);
+                }
+                else if (indumentaria is Remera)
+                {
+                    comando.Parameters.AddWithValue("@caracteristicaPropia", ((Remera)indumentaria).TieneEstampado);
+                }
+
                 comando.Parameters.AddWithValue("@codigoOriginal", indumentaria.Codigo);
 
                 resultado = comando.ExecuteNonQuery();
@@ -115,12 +158,15 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
             return resultado;
         }
+
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
         }
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
         }
+
         private void cmbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
         }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
@@ -135,7 +136,6 @@ namespace Cordoba.Rodrigo.PrimerParcial
             return lista;
         }
 
-
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidad;
@@ -148,38 +148,54 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 EMaterial material;
                 if (Enum.TryParse(cmbMaterial.SelectedItem.ToString(), out material))
                 {
-                    Indumentaria prenda = null;
-                    if (rdbRemera.Checked)
+                    try
                     {
-                        prenda = new Remera(codigo, cantidad, material, rdbEstampado.Checked);
-                    }
-                    else if (radioButton1.Checked)
-                    {
-                        prenda = new Pantalon(codigo, cantidad, material, rdbBermuda.Checked);
-                    }
-                    else if (rdbCampera.Checked)
-                    {
-                        prenda = new Campera(codigo, cantidad, material, rdbCapucha.Checked);
-                    }
-
-                    if (prenda != null)
-                    {
-                        int resultado = AgregarIndumentaria(prenda);
-                        if (resultado > 0)
+                        if (inicio.ListaIndumentaria.Any(p => p.Codigo == codigo))
                         {
-                            MessageBox.Show("Guardado exitosamente.");
-                            inicio.AgregarPrenda(prenda);
-                            this.Close();
+                            throw new Inventario<Indumentaria>.CodigoDuplicadoException($"Ya existe una prenda con código {codigo}.");
+                        }
+
+                        Indumentaria prenda = null;
+                        if (rdbRemera.Checked)
+                        {
+                            prenda = new Remera(codigo, cantidad, material, rdbEstampado.Checked);
+                        }
+                        else if (radioButton1.Checked)
+                        {
+                            prenda = new Pantalon(codigo, cantidad, material, rdbBermuda.Checked);
+                        }
+                        else if (rdbCampera.Checked)
+                        {
+                            prenda = new Campera(codigo, cantidad, material, rdbCapucha.Checked);
+                        }
+
+                        if (prenda != null)
+                        {
+                            int resultado = AgregarIndumentaria(prenda);
+                            if (resultado > 0)
+                            {
+                                MessageBox.Show("Guardado exitosamente.");
+                                inicio.AgregarPrenda(prenda);
+                                this.Close();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se pudo guardar.");
+                                Console.WriteLine("No se pudo guardar la prenda en la base de datos.");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("No se pudo guardar.");
-                            Console.WriteLine("No se pudo guardar la prenda en la base de datos.");
+                            MessageBox.Show("Seleccione un tipo de prenda.");
                         }
                     }
-                    else
+                    catch (Inventario<Indumentaria>.CodigoDuplicadoException ex)
                     {
-                        MessageBox.Show("Seleccione un tipo de prenda.");
+                        MessageBox.Show(ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Ocurrió un error: {ex.Message}");
                     }
                 }
                 else
