@@ -1,10 +1,6 @@
 ﻿using System;
-using System.IO;
-using System.Text;
-using System.Text.Json.Serialization;
 using System.Text.Json;
-using System.Xml;
-using System.Xml.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Entidades.Indumentaria
 {
@@ -13,6 +9,13 @@ namespace Entidades.Indumentaria
     /// </summary>
     public class IndumentariaConvertidor : JsonConverter<Indumentaria>
     {
+        /// <summary>
+        /// Lee un objeto de tipo Indumentaria a partir de su representación JSON.
+        /// </summary>
+        /// <param name="reader">El lector de JSON.</param>
+        /// <param name="typeToConvert">El tipo de objeto que se va a convertir.</param>
+        /// <param name="options">Opciones de serialización JSON.</param>
+        /// <returns>El objeto de tipo Indumentaria.</returns>
         public override Indumentaria Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {
             using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
@@ -37,6 +40,12 @@ namespace Entidades.Indumentaria
             }
         }
 
+        /// <summary>
+        /// Escribe un objeto de tipo Indumentaria en su representación JSON.
+        /// </summary>
+        /// <param name="writer">El escritor de JSON.</param>
+        /// <param name="value">El objeto de tipo Indumentaria a escribir.</param>
+        /// <param name="options">Opciones de serialización JSON.</param>
         public override void Write(Utf8JsonWriter writer, Indumentaria value, JsonSerializerOptions options)
         {
             writer.WriteStartObject();
@@ -48,14 +57,17 @@ namespace Entidades.Indumentaria
             switch (value)
             {
                 case Campera campera:
+                    writer.WriteBoolean("TieneCapucha", campera.TieneCapucha);
                     writer.WritePropertyName("Campera");
                     JsonSerializer.Serialize(writer, campera, options);
                     break;
                 case Remera remera:
+                    writer.WriteBoolean("TieneEstampado", remera.TieneEstampado);
                     writer.WritePropertyName("Remera");
                     JsonSerializer.Serialize(writer, remera, options);
                     break;
                 case Pantalon pantalon:
+                    writer.WriteBoolean("EsBermuda", pantalon.EsBermuda);
                     writer.WritePropertyName("Pantalon");
                     JsonSerializer.Serialize(writer, pantalon, options);
                     break;

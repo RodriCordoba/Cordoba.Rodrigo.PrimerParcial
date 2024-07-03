@@ -11,6 +11,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
     public partial class FrmEliminar : frmBaseIndumentaria
     {
         private FrmInicio inicio;
+
         /// <summary>
         /// Indica si la eliminación ha sido confirmada.
         /// </summary>

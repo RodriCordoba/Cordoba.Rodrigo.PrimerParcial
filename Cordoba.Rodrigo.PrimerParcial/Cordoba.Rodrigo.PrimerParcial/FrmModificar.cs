@@ -6,11 +6,19 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que representa el formulario para modificar una prenda.
+    /// </summary>
     public partial class FrmModificar : frmBaseIndumentaria
     {
         private FrmInicio inicio;
         private Indumentaria prendaSeleccionada;
 
+        /// <summary>
+        /// Constructor de la clase FrmModificar.
+        /// </summary>
+        /// <param name="inicio">Instancia del formulario de inicio.</param>
+        /// <param name="prenda">Prenda a modificar.</param>
         public FrmModificar(FrmInicio inicio, Indumentaria prenda)
         {
             InitializeComponent();
@@ -28,6 +36,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
             DesmarcarRadioButton();
         }
 
+        /// <summary>
+        /// Desmarca todos los botones de radio.
+        /// </summary>
         private void DesmarcarRadioButton()
         {
             rdbCapucha.Checked = false;
@@ -35,17 +46,32 @@ namespace Cordoba.Rodrigo.PrimerParcial
             rdbEstampado.Checked = false;
         }
 
+        /// <summary>
+        /// Método invocado cuando se cierra el formulario.
+        /// </summary>
+        /// <param name="sender">Objeto que generó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void FrmModificar_FormClosed(object sender, FormClosedEventArgs e)
         {
             inicio.Show();
         }
 
+        /// <summary>
+        /// Método invocado al hacer clic en el botón "Cancelar".
+        /// </summary>
+        /// <param name="sender">Objeto que generó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
             inicio.Show();
         }
 
+        /// <summary>
+        /// Método invocado al hacer clic en el botón "Aceptar".
+        /// </summary>
+        /// <param name="sender">Objeto que generó el evento.</param>
+        /// <param name="e">Argumentos del evento.</param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             try
@@ -87,6 +113,10 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Configura los controles específicos de la prenda seleccionada.
+        /// </summary>
+        /// <param name="prenda">Prenda a configurar.</param>
         private void ConfigurarControlesEspecificos(Indumentaria prenda)
         {
             rdbCapucha.Visible = false;
@@ -110,6 +140,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Guarda los valores específicos de la prenda seleccionada.
+        /// </summary>
         private void GuardarValoresEspecificos()
         {
             if (prendaSeleccionada is Campera)
@@ -126,6 +159,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Método estático para modificar una prenda en la base de datos.
+        /// </summary>
+        /// <param name="indumentaria">Prenda a modificar.</param>
+        /// <returns>Número de filas afectadas.</returns>
         public static int ModificarIndumentaria(Indumentaria indumentaria)
         {
             int resultado = 0;

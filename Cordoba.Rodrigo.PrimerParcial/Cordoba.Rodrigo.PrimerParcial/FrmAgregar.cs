@@ -7,10 +7,20 @@ using System.Windows.Forms;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Formulario para agregar indumentaria.
+    /// </summary>
     public partial class FrmAgregar : frmBaseIndumentaria
     {
+        /// <summary>
+        /// Referencia al formulario principal.
+        /// </summary>
         private FrmInicio inicio;
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="FrmAgregar"/>.
+        /// </summary>
+        /// <param name="inicio">Referencia al formulario principal.</param>
         public FrmAgregar(FrmInicio inicio)
         {
             InitializeComponent();
@@ -27,6 +37,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             rdbRemera.CheckedChanged += RadioButton_CheckedChanged;
         }
 
+        /// <summary>
+        /// Agrega una indumentaria a la base de datos.
+        /// </summary>
+        /// <param name="indumentaria">La indumentaria a agregar.</param>
+        /// <returns>Número de filas afectadas en la base de datos.</returns>
         public static int AgregarIndumentaria(Indumentaria indumentaria)
         {
             int retorno = 0;
@@ -76,6 +91,10 @@ namespace Cordoba.Rodrigo.PrimerParcial
             return retorno;
         }
 
+        /// <summary>
+        /// Presenta el registro de indumentaria desde la base de datos.
+        /// </summary>
+        /// <returns>Lista de indumentaria.</returns>
         public static List<Indumentaria> PresentarRegistro()
         {
             List<Indumentaria> lista = new List<Indumentaria>();
@@ -136,6 +155,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             return lista;
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón Aceptar.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             int cantidad;
@@ -209,11 +233,21 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de cierre del formulario.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void FrmAgregar_FormClosed(object sender, FormClosedEventArgs e)
         {
             inicio.Show();
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de estado de los radio buttons.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             if (rdbCampera.Checked)
@@ -242,6 +276,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón Cancelar.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();

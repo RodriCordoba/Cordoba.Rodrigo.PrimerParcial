@@ -1,31 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfIndumentaria xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Indumentaria xsi:type="Pantalon">
-    <Codigo>r33</Codigo>
-    <Cantidad>3</Cantidad>
-    <TipoMaterial>Poliester</TipoMaterial>
-    <Items />
-    <EsBermuda>true</EsBermuda>
-  </Indumentaria>
-  <Indumentaria xsi:type="Pantalon">
-    <Codigo>ht6</Codigo>
-    <Cantidad>6</Cantidad>
-    <TipoMaterial>Poliester</TipoMaterial>
-    <Items />
-    <EsBermuda>true</EsBermuda>
-  </Indumentaria>
   <Indumentaria xsi:type="Remera">
-    <Codigo>h5433prueba</Codigo>
-    <Cantidad>1</Cantidad>
+    <Codigo>ht6prueba</Codigo>
+    <Cantidad>2</Cantidad>
     <TipoMaterial>Poliester</TipoMaterial>
     <Items />
     <TieneEstampado>true</TieneEstampado>
   </Indumentaria>
   <Indumentaria xsi:type="Remera">
-    <Codigo>efg3</Codigo>
-    <Cantidad>31</Cantidad>
+    <Codigo>4t4</Codigo>
+    <Cantidad>4</Cantidad>
+    <TipoMaterial>Lana</TipoMaterial>
+    <Items />
+    <TieneEstampado>true</TieneEstampado>
+  </Indumentaria>
+  <Indumentaria xsi:type="Pantalon">
+    <Codigo>fe3</Codigo>
+    <Cantidad>3</Cantidad>
     <TipoMaterial>Poliester</TipoMaterial>
     <Items />
-    <TieneEstampado>false</TieneEstampado>
+    <EsBermuda>true</EsBermuda>
+  </Indumentaria>
+  <Indumentaria xsi:type="Campera">
+    <Codigo>42</Codigo>
+    <Cantidad>2</Cantidad>
+    <TipoMaterial>Gabardina</TipoMaterial>
+    <Items />
+    <TieneCapucha>true</TieneCapucha>
+  </Indumentaria>
+  <Indumentaria xsi:type="Remera">
+    <Codigo>2321</Codigo>
+    <Cantidad>2</Cantidad>
+    <TipoMaterial>Lana</TipoMaterial>
+    <Items />
+    <TieneEstampado>true</TieneEstampado>
+  </Indumentaria>
+  <Indumentaria xsi:type="Campera">
+    <Codigo>g53</Codigo>
+    <Cantidad>4</Cantidad>
+    <TipoMaterial>Poliester</TipoMaterial>
+    <Items />
+    <TieneCapucha>false</TieneCapucha>
+  </Indumentaria>
+  <Indumentaria xsi:type="Pantalon">
+    <Codigo>tge</Codigo>
+    <Cantidad>3</Cantidad>
+    <TipoMaterial>Lana</TipoMaterial>
+    <Items />
+    <EsBermuda>true</EsBermuda>
   </Indumentaria>
 </ArrayOfIndumentaria>

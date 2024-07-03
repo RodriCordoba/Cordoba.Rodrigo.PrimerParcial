@@ -11,18 +11,46 @@ using System.Xml.Serialization;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Delegado para el evento cuando se actualiza la hora.
+    /// </summary>
+    /// <param name="sender">El origen del evento.</param>
+    /// <param name="horaActualizada">La hora actualizada como una cadena.</param>
     public delegate void HoraActualizadaEventHandler(object sender, string horaActualizada);
+
+    /// <summary>
+    /// Clase principal del formulario para la aplicación.
+    /// </summary>
     public partial class FrmInicio : Form
     {
+        /// <summary>
+        /// Evento que se dispara cuando se actualiza la hora.
+        /// </summary>
         public event HoraActualizadaEventHandler HoraActualizada;
+
+        /// <summary>
+        /// Lista de prendas de vestir.
+        /// </summary>
         private List<Indumentaria> listaIndumentaria;
+
+        /// <summary>
+        /// Temporizador para actualizar la hora actual.
+        /// </summary>
         private System.Windows.Forms.Timer timer;
 
+        /// <summary>
+        /// Obtiene la lista de prendas de vestir.
+        /// </summary>
         public List<Indumentaria> ListaIndumentaria
         {
             get { return listaIndumentaria; }
         }
 
+        /// <summary>
+        /// Inicializa una nueva instancia de la clase <see cref="FrmInicio"/>.
+        /// </summary>
+        /// <param name="nombreOperador">Nombre del operador.</param>
+        /// <param name="puesto">Puesto del operador.</param>
         public FrmInicio(string nombreOperador, string puesto)
         {
             InitializeComponent();
@@ -50,12 +78,18 @@ namespace Cordoba.Rodrigo.PrimerParcial
             InicializarReloj();
         }
 
+        /// <summary>
+        /// Carga la configuración inicial del formulario.
+        /// </summary>
         private void FrmInicio_Load()
         {
             string fechaActual = DateTime.Today.ToString("dd/MM/yyyy");
             labelFecha.Text = "Fecha: " + fechaActual;
         }
 
+        /// <summary>
+        /// Inicializa el reloj para actualizar la hora actual.
+        /// </summary>
         private void InicializarReloj()
         {
             ToolStripStatusLabel toolStripStatusLblHora = new ToolStripStatusLabel();
@@ -77,11 +111,21 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
             timer.Start();
         }
+
+        /// <summary>
+        /// Dispara el evento HoraActualizada.
+        /// </summary>
+        /// <param name="horaActualizada">La hora actualizada como una cadena.</param>
         protected virtual void OnHoraActualizada(string horaActualizada)
         {
             HoraActualizada?.Invoke(this, horaActualizada);
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para modificar una prenda de vestir.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void button2_Click(object sender, EventArgs e)
         {
             if (listInd.SelectedItem != null)
@@ -97,6 +141,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para cerrar la sesión.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmLogin sesion = new FrmLogin();
@@ -104,11 +153,21 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Close();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para cerrar el programa.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void cerrarProgramaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para agregar una nueva prenda de vestir.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void button1_Click(object sender, EventArgs e)
         {
             FrmAgregar agregar = new FrmAgregar(this);
@@ -116,6 +175,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             this.Hide();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para eliminar una prenda de vestir.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (listInd.SelectedItem != null)
@@ -167,12 +231,20 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Agrega una nueva prenda de vestir a la lista.
+        /// </summary>
+        /// <param name="prenda">La prenda de vestir a agregar.</param>
         public void AgregarPrenda(Indumentaria prenda)
         {
             listaIndumentaria.Add(prenda);
             ActualizarLista();
         }
 
+        /// <summary>
+        /// Actualiza una prenda de vestir en la lista.
+        /// </summary>
+        /// <param name="prenda">La prenda de vestir a actualizar.</param>
         public void ActualizarPrenda(Indumentaria prenda)
         {
             for (int i = 0; i < listaIndumentaria.Count; i++)
@@ -195,18 +267,29 @@ namespace Cordoba.Rodrigo.PrimerParcial
             ActualizarLista();
         }
 
+        /// <summary>
+        /// Actualiza la visualización de la lista.
+        /// </summary>
         private void ActualizarLista()
         {
             listInd.DataSource = null;
             listInd.DataSource = listaIndumentaria;
         }
 
+        /// <summary>
+        /// Carga las prendas de vestir desde la base de datos.
+        /// </summary>
         private void ActualizarListaDesdeDB()
         {
             listaIndumentaria = FrmAgregar.PresentarRegistro();
             ActualizarLista();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para ordenar la lista por tipo.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void ordenarListaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria.OrderBy(prenda =>
@@ -218,22 +301,40 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }).ToList();
             ActualizarLista();
         }
+
+        /// <summary>
+        /// Maneja el evento de clic para ordenar la lista por cantidad en orden ascendente.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void ordenarPorCantidadToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria
-                .OrderBy(prenda => prenda.Cantidad) 
+                .OrderBy(prenda => prenda.Cantidad)
                 .ToList();
 
             ActualizarLista();
         }
+
+        /// <summary>
+        /// Maneja el evento de clic para ordenar la lista por cantidad en orden descendente.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void ordenarPorCantidadDescendenteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             listaIndumentaria = listaIndumentaria
-                .OrderByDescending(prenda => prenda.Cantidad) 
+                .OrderByDescending(prenda => prenda.Cantidad)
                 .ToList();
 
             ActualizarLista();
         }
+
+        /// <summary>
+        /// Maneja el evento de clic para guardar la lista en un archivo XML.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.xml";
@@ -252,6 +353,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para guardar la lista en un archivo JSON.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void jSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.json";
@@ -267,6 +373,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para cargar la lista desde un archivo XML.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void cargarXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.xml";
@@ -293,6 +404,11 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para cargar la lista desde un archivo JSON.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void cargarJSONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.json";
@@ -301,7 +417,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 if (File.Exists(filePath))
                 {
                     string jsonString = File.ReadAllText(filePath);
-                    listaIndumentaria = JsonSerializer.Deserialize<List<Indumentaria>>(jsonString);
+                    var options = new JsonSerializerOptions();
+                    options.Converters.Add(new IndumentariaConvertidor());
+                    listaIndumentaria = JsonSerializer.Deserialize<List<Indumentaria>>(jsonString, options);
                     ActualizarLista();
                     MessageBox.Show("Datos cargados exitosamente desde JSON.");
                 }
@@ -316,14 +434,29 @@ namespace Cordoba.Rodrigo.PrimerParcial
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para el elemento del status strip.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para la etiqueta de fecha.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void labelFecha_Click(object sender, EventArgs e)
         {
         }
 
+        /// <summary>
+        /// Maneja el evento de clic para la etiqueta del operador.
+        /// </summary>
+        /// <param name="sender">El origen del evento.</param>
+        /// <param name="e">Datos del evento.</param>
         private void labelOperador_Click(object sender, EventArgs e)
         {
         }

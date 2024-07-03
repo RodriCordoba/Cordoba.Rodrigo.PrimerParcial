@@ -59,7 +59,7 @@
             ClientSize = new Size(734, 361);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "frmBaseIndumentaria";
             StartPosition = FormStartPosition.CenterScreen;
             ResumeLayout(false);

@@ -3,8 +3,15 @@ using System.Data.SqlClient;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    /// <summary>
+    /// Clase que proporciona métodos para gestionar la conexión a la base de datos.
+    /// </summary>
     public class BDGeneral
     {
+        /// <summary>
+        /// Obtiene una conexión abierta a la base de datos.
+        /// </summary>
+        /// <returns>Una instancia de <see cref="SqlConnection"/> con la conexión abierta.</returns>
         public static SqlConnection ObtenerConexion()
         {
             SqlConnection conexion = new SqlConnection("Server=rodri\\SQLEXPRESS;Database=BDindumentaria;User Id=sa;Password=rodri;");
@@ -12,6 +19,9 @@ namespace Cordoba.Rodrigo.PrimerParcial
             return conexion;
         }
 
+        /// <summary>
+        /// Prueba la conexión a la base de datos.
+        /// </summary>
         public static void ProbarConexion()
         {
             try

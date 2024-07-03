@@ -12,6 +12,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
     public partial class FrmLogin : Form
     {
         private List<Empleado> empleados;
+
         /// <summary>
         /// Constructor de la clase FrmLogin.
         /// </summary>
@@ -20,6 +21,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             InitializeComponent();
             CargarEmpleadosDesdeJSON();
         }
+
         /// <summary>
         /// Carga los empleados desde un archivo JSON.
         /// </summary>
@@ -42,9 +44,10 @@ namespace Cordoba.Rodrigo.PrimerParcial
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los empleados desde el archivo JSON: " + ex.Message);
-                empleados = new List<Empleado>(); 
+                empleados = new List<Empleado>();
             }
         }
+
         /// <summary>
         /// Método invocado al hacer clic en el botón de inicio de sesión.
         /// </summary>
@@ -82,6 +85,5 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 MessageBox.Show("Correo electrónico o contraseña incorrectos. Por favor, intente nuevamente.");
             }
         }
-
     }
 }
