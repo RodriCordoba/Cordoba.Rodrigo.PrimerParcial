@@ -22,5 +22,9 @@ La aplicacion Crud - Indumentaria es una herramienta diseñada para realizar la 
 ## Diagrama de clases
 ![alt text](image-2.png)
 
+## Usuario y contraseña sql
+usuario: sa
+contraseña: rodri
+
 ## Script sql
 Puedes encontrar el script SQL en la carpeta `sql_scripts` dentro de este repositorio: `sql_scripts/script.sql`.
