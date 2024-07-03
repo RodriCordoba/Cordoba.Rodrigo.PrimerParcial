@@ -45,6 +45,8 @@
             cargarXMLToolStripMenuItem = new ToolStripMenuItem();
             cargarJSONToolStripMenuItem = new ToolStripMenuItem();
             ordenarListaToolStripMenuItem = new ToolStripMenuItem();
+            ordenarPorCantidadToolStripMenuItem = new ToolStripMenuItem();
+            ordenarPorCantidadDescendenteToolStripMenuItem = new ToolStripMenuItem();
             listInd = new ListBox();
             pbrTask = new ProgressBar();
             statusStrip1.SuspendLayout();
@@ -122,7 +124,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { salirToolStripMenuItem, serializadorToolStripMenuItem, ordenarListaToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { salirToolStripMenuItem, serializadorToolStripMenuItem, ordenarListaToolStripMenuItem, ordenarPorCantidadToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -190,9 +192,24 @@
             // ordenarListaToolStripMenuItem
             // 
             ordenarListaToolStripMenuItem.Name = "ordenarListaToolStripMenuItem";
-            ordenarListaToolStripMenuItem.Size = new Size(86, 20);
-            ordenarListaToolStripMenuItem.Text = "Ordenar lista";
+            ordenarListaToolStripMenuItem.Size = new Size(123, 20);
+            ordenarListaToolStripMenuItem.Text = "Ordenar por prenda";
             ordenarListaToolStripMenuItem.Click += ordenarListaToolStripMenuItem_Click;
+            // 
+            // ordenarPorCantidadToolStripMenuItem
+            // 
+            ordenarPorCantidadToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ordenarPorCantidadDescendenteToolStripMenuItem });
+            ordenarPorCantidadToolStripMenuItem.Name = "ordenarPorCantidadToolStripMenuItem";
+            ordenarPorCantidadToolStripMenuItem.Size = new Size(195, 20);
+            ordenarPorCantidadToolStripMenuItem.Text = "Ordenar por cantidad ascendente";
+            ordenarPorCantidadToolStripMenuItem.Click += ordenarPorCantidadToolStripMenuItem_Click;
+            // 
+            // ordenarPorCantidadDescendenteToolStripMenuItem
+            // 
+            ordenarPorCantidadDescendenteToolStripMenuItem.Name = "ordenarPorCantidadDescendenteToolStripMenuItem";
+            ordenarPorCantidadDescendenteToolStripMenuItem.Size = new Size(257, 22);
+            ordenarPorCantidadDescendenteToolStripMenuItem.Text = "Ordenar por cantidad descendente";
+            ordenarPorCantidadDescendenteToolStripMenuItem.Click += ordenarPorCantidadDescendenteToolStripMenuItem_Click;
             // 
             // listInd
             // 
@@ -258,5 +275,7 @@
         private ToolStripMenuItem cargarJSONToolStripMenuItem;
         private ProgressBar pbrTask;
         private ToolStripStatusLabel toolStripStatusLblHora;
+        private ToolStripMenuItem ordenarPorCantidadToolStripMenuItem;
+        private ToolStripMenuItem ordenarPorCantidadDescendenteToolStripMenuItem;
     }
 }

@@ -62,7 +62,7 @@ namespace Cordoba.Rodrigo.PrimerParcial
             statusStrip1.Items.Add(toolStripStatusLblHora);
 
             timer = new System.Windows.Forms.Timer();
-            timer.Interval = 1000; 
+            timer.Interval = 1000;
 
             timer.Tick += (sender, e) =>
             {
@@ -215,10 +215,25 @@ namespace Cordoba.Rodrigo.PrimerParcial
                 if (prenda is Campera) return "Campera";
                 if (prenda is Remera) return "Remera";
                 return string.Empty;
-            }).ThenBy(prenda => prenda.Cantidad).ToList();
+            }).ToList();
             ActualizarLista();
         }
+        private void ordenarPorCantidadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listaIndumentaria = listaIndumentaria
+                .OrderBy(prenda => prenda.Cantidad) 
+                .ToList();
 
+            ActualizarLista();
+        }
+        private void ordenarPorCantidadDescendenteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listaIndumentaria = listaIndumentaria
+                .OrderByDescending(prenda => prenda.Cantidad) 
+                .ToList();
+
+            ActualizarLista();
+        }
         private void xMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string filePath = "indumentaria.xml";
