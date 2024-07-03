@@ -1,43 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Entidades.Indumentaria.Indumentaria">
-    <Position X="3.25" Y="0.75" Width="1.5" />
+    <Position X="3.75" Y="0.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAABEAAQAACAAEQAUAEIABAAAAAAAAAAABAAAAAjA=</HashCode>
+      <HashCode>AAAAABEAAQAACAAEwAUAEIABAAAAAIAAAAABAAAAAjA=</HashCode>
       <FileName>Indumentaria1.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Indumentaria.Pantalon">
-    <Position X="3.25" Y="5.25" Width="1.5" />
+    <Position X="3.75" Y="6" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAABAAAAAIEAAAAAAAAAAiA=</HashCode>
       <FileName>Pantalon.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Indumentaria.Remera">
-    <Position X="5.25" Y="5.25" Width="1.5" />
-    <InheritanceLine Type="Entidades.Indumentaria.Indumentaria" ManuallyRouted="true">
-      <Path>
-        <Point X="4" Y="4.997" />
-        <Point X="4" Y="5.125" />
-        <Point X="6" Y="5.125" />
-        <Point X="6" Y="5.25" />
-      </Path>
-    </InheritanceLine>
+    <Position X="7.25" Y="6" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAEgAAAAAABAAAAAIAAAAAAAAAAAiA=</HashCode>
       <FileName>Remera.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Entidades.Indumentaria.Campera">
-    <Position X="1.25" Y="5.25" Width="1.5" />
+    <Position X="0.5" Y="6" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAEgAAAAAABAAAAAIAAAAAAAAAAAiA=</HashCode>
       <FileName>Campera.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
+  <Class Name="Entidades.Indumentaria.Inventario&lt;T&gt;">
+    <Position X="10.5" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="Entidades.Indumentaria.Inventario&lt;T&gt;.IndumentariaException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Inventario.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Entidades.Indumentaria.Inventario&lt;T&gt;.CodigoDuplicadoException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Inventario.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Entidades.Indumentaria.Inventario&lt;T&gt;.PrendaNoEncontradaException" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Inventario.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAEwAEAAAEAAAAAIIAAAAAAAAAAAiA=</HashCode>
+      <FileName>Inventario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Entidades.Indumentaria.IIndumentaria&lt;T&gt;">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAQAACAAAAAAAAAABAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>IIndumentaria.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
   <Enum Name="EMaterial">
-    <Position X="5.25" Y="0.75" Width="1.5" />
+    <Position X="7.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAEAAAAAAAAAIQAABAQBAAAAAQAAAA=</HashCode>
       <FileName>EMaterial.cs</FileName>
