@@ -31,6 +31,7 @@
             statusStrip1 = new StatusStrip();
             labelOperador = new ToolStripStatusLabel();
             labelFecha = new ToolStripStatusLabel();
+            toolStripStatusLblHora = new ToolStripStatusLabel();
             button1 = new Button();
             button2 = new Button();
             btnEliminar = new Button();
@@ -54,7 +55,7 @@
             // 
             statusStrip1.BackColor = SystemColors.InactiveCaption;
             statusStrip1.Dock = DockStyle.Top;
-            statusStrip1.Items.AddRange(new ToolStripItem[] { labelOperador, labelFecha });
+            statusStrip1.Items.AddRange(new ToolStripItem[] { labelOperador, labelFecha, toolStripStatusLblHora });
             statusStrip1.Location = new Point(0, 24);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new Size(800, 22);
@@ -78,6 +79,12 @@
             labelFecha.Size = new Size(143, 17);
             labelFecha.Text = "toolStripStatusLabelFecha";
             labelFecha.Click += labelFecha_Click;
+            // 
+            // toolStripStatusLblHora
+            // 
+            toolStripStatusLblHora.Name = "toolStripStatusLblHora";
+            toolStripStatusLblHora.Size = new Size(36, 17);
+            toolStripStatusLblHora.Text = "Hora:";
             // 
             // button1
             // 
@@ -250,5 +257,6 @@
         private ToolStripMenuItem cargarXMLToolStripMenuItem;
         private ToolStripMenuItem cargarJSONToolStripMenuItem;
         private ProgressBar pbrTask;
+        private ToolStripStatusLabel toolStripStatusLblHora;
     }
 }

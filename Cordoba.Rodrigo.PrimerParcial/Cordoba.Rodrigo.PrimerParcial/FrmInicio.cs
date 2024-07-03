@@ -11,9 +11,12 @@ using System.Xml.Serialization;
 
 namespace Cordoba.Rodrigo.PrimerParcial
 {
+    public delegate void HoraActualizadaEventHandler(object sender, string horaActualizada);
     public partial class FrmInicio : Form
     {
+        public event HoraActualizadaEventHandler HoraActualizada;
         private List<Indumentaria> listaIndumentaria;
+        private System.Windows.Forms.Timer timer;
 
         public List<Indumentaria> ListaIndumentaria
         {
@@ -44,12 +47,39 @@ namespace Cordoba.Rodrigo.PrimerParcial
 
             listaIndumentaria = new List<Indumentaria>();
             ActualizarListaDesdeDB();
+            InicializarReloj();
         }
 
         private void FrmInicio_Load()
         {
             string fechaActual = DateTime.Today.ToString("dd/MM/yyyy");
             labelFecha.Text = "Fecha: " + fechaActual;
+        }
+
+        private void InicializarReloj()
+        {
+            ToolStripStatusLabel toolStripStatusLblHora = new ToolStripStatusLabel();
+            statusStrip1.Items.Add(toolStripStatusLblHora);
+
+            timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000; 
+
+            timer.Tick += (sender, e) =>
+            {
+                string horaActual = DateTime.Now.ToString("HH:mm:ss");
+                OnHoraActualizada(horaActual);
+            };
+
+            HoraActualizada += (sender, horaActualizada) =>
+            {
+                toolStripStatusLblHora.Text = horaActualizada;
+            };
+
+            timer.Start();
+        }
+        protected virtual void OnHoraActualizada(string horaActualizada)
+        {
+            HoraActualizada?.Invoke(this, horaActualizada);
         }
 
         private void button2_Click(object sender, EventArgs e)
